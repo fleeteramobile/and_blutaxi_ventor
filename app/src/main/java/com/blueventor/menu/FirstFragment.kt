@@ -76,11 +76,14 @@ class FirstFragment : Fragment() {
                             sessionManager.saveString("company_id",response.detail.company_id.toString())
                             sessionManager.saveString("email",response.detail.email)
                             sessionManager.saveString("phone",response.detail.phone)
+                            findNavController().navigate(R.id.SecondFragment )
 
                         }
                     }
 
-                    is UiState.Error -> {}
+                    is UiState.Error -> {
+                        requireActivity().showAlert(state.message )
+                    }
                     is UiState.Idle -> {}
                     else -> {}
                 }
