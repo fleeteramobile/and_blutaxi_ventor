@@ -22,6 +22,9 @@ import com.blueventor.viewmodel.DashboardViewModel
 import com.blueventor.viewmodel.VendorLoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 import javax.inject.Inject
 
 /**
@@ -38,11 +41,11 @@ class SecondFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     val dashboardViewModel: DashboardViewModel by viewModels()
-var company_id = ""
-
+    var company_id = ""
+    var currentDate = ""
+    var firstDay = ""
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
@@ -53,11 +56,22 @@ var company_id = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val userId = sessionManager.getString("userAuth", "Not Found")
-         company_id = sessionManager.getString("company_id", "Not Found")
+        company_id = sessionManager.getString("company_id", "Not Found")
 
+        val calendar = Calendar.getInstance()
 
-logDebugMessage("userAuth",userId)
-loadDashBoadApi()
+        // Current Date
+         currentDate = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
+binding.currentDate.setText(currentDate)
+        // First day of current month
+        calendar.set(Calendar.DAY_OF_MONTH, 1)
+         firstDay = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
+
+        println("First Day of Current Month: $firstDay")
+        println("Current Date: $currentDate")
+
+        logDebugMessage("userAuth", userId)
+        loadDashBoadApi()
         getDashBoadDetails()
 
     }
@@ -71,35 +85,40 @@ loadDashBoadApi()
                         val response = state.data as ResponseDashBoardDetails
                         if (response != null) {
 
-                            logDebugMessage("active_driver",response.count.approved_driver)
+                            logDebugMessage("active_driver", response.count.approved_driver)
                             binding.totalAmount.setText(response.count.total_amount.toString())
                             binding.cashPayment.setText(response.count.cash_payment.toString())
                             binding.activeDriver.setText(response.count.active_driver.toString())
                             binding.inactiveDriver.setText(response.count.inactive_driver.toString())
                             binding.blockedDriver.setText(response.count.blocked_driver.toString())
 
-                            binding.cashPayment.setText(response.count.cash_payment.toString())
-                            binding.cardPayment.setText(response.count.card_payment.toString())
-                            binding.discoundPayment.setText(response.count.total_amount.toString())
+                            binding.totalTripsCount.setText(response.count.total_trips_count.toString())
+                            binding.completedTripsCount.setText(response.count.completed_trips_count.toString())
+                            binding.cancelTripsCount.setText(response.count.cancel_trips_count.toString())
+                            binding.totalAmount.setText("₹ ${response.count.total_amount.toString()}")
+
+                            binding.cashPayment.setText("₹ ${response.count.cash_payment.toString()}")
+                            binding.cardPayment.setText("₹ ${response.count.card_payment.toString()}")
+                            binding.discoundPayment.setText("₹ ${response.count.total_amount.toString()}")
 
                         }
                     }
 
                     is UiState.Error -> {
-                        requireActivity().showAlert(state.message )
+                        requireActivity().showAlert(state.message)
                     }
+
                     is UiState.Idle -> {}
                     else -> {}
                 }
             }
-        }    }
+        }
+    }
 
     private fun loadDashBoadApi() {
         lifecycleScope.launch {
             val request = RequestDashBoardDetails(
-                company_id = "3",
-                start_date = "30-07-2025",
-                end_date = "22-08-2025"
+                company_id = company_id, start_date = currentDate, end_date = currentDate
 
             )
             dashboardViewModel.getDashBoardDetails(request)

@@ -11,6 +11,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:padding="12dp"
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
        >
@@ -201,7 +202,7 @@
                         <TextView
                             android:gravity="left"
                             android:text="Total rides"
-                            android:textColor="#AEB5BE"
+                            android:textColor="#000"
                             android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -209,8 +210,8 @@
 
                         <TextView
                             android:gravity="left"
-                            android:text="100"
-                            android:textColor="#AEB5BE"
+                            android:text=""
+                            android:textColor="#000"
                             android:textStyle="bold"
                             android:id="@+id/total_trips_count"
 
@@ -240,7 +241,7 @@
                         <TextView
                             android:gravity="left"
                             android:text="Completed"
-                            android:textColor="#AEB5BE"
+                            android:textColor="#000"
                             android:textStyle="bold"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -248,8 +249,8 @@
 
                         <TextView
                             android:gravity="left"
-                            android:text="100"
-                            android:textColor="#AEB5BE"
+                            android:text=""
+                            android:textColor="#000"
                             android:textStyle="bold"
                             android:id="@+id/completed_trips_count"
 
@@ -280,15 +281,15 @@
                             android:text="Cancel"
 
                             android:textStyle="bold"
-                            android:textColor="#AEB5BE"
+                            android:textColor="#000"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="8dp"/>
 
                         <TextView
                             android:gravity="left"
-                            android:text="100"
-                            android:textColor="#AEB5BE"
+                            android:text=""
+                            android:textColor="#000"
                             android:textStyle="bold"
                             android:id="@+id/cancel_trips_count"
 
@@ -351,10 +352,10 @@
                                     android:layout_height="wrap_content"/>
 
                                 <TextView
-                                    android:text="09-07-2025"
+                                    android:text=""
                                     android:textSize="14sp"
                                     android:textColor="@color/black"
-
+android:id="@+id/currentDate"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"/>
                             </LinearLayout>
@@ -362,7 +363,7 @@
 
                         </LinearLayout>
                         <TextView
-                            android:text="₹1025.00"
+                            android:text=""
                             android:textColor="#F52D56"
                             android:textStyle="bold"
                             android:textSize="16sp"
@@ -392,7 +393,7 @@
                             <TextView
                                 android:gravity="left"
                                 android:text="Cash"
-                                android:textColor="#AEB5BE"
+                                android:textColor="#000"
                                 android:textStyle="bold"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -400,8 +401,8 @@
 
                             <TextView
                                 android:gravity="left"
-                                android:text="100"
-                                android:textColor="#AEB5BE"
+                                android:text=""
+                                android:textColor="#000"
                                 android:textStyle="bold"
                                 android:id="@+id/cash_payment"
 
@@ -419,8 +420,8 @@
                             android:layout_height="wrap_content">
                             <TextView
                                 android:gravity="left"
-                                android:text="Online Payments"
-                                android:textColor="#AEB5BE"
+                                android:text="Online "
+                                android:textColor="#000"
                                 android:textStyle="bold"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -428,8 +429,8 @@
 
                             <TextView
                                 android:gravity="left"
-                                android:text="100"
-                                android:textColor="#AEB5BE"
+                                android:text=""
+                                android:textColor="#000"
                                 android:textStyle="bold"
                                 android:id="@+id/card_payment"
 
@@ -447,7 +448,7 @@
                             <TextView
                                 android:gravity="left"
                                 android:text="Discount"
-                                android:textColor="#AEB5BE"
+                                android:textColor="#000"
                                 android:textStyle="bold"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -455,8 +456,8 @@
 
                             <TextView
                                 android:gravity="left"
-                                android:text="100"
-                                android:textColor="#AEB5BE"
+                                android:text=""
+                                android:textColor="#000"
                                 android:textStyle="bold"
                                 android:id="@+id/discound_payment"
                                 android:layout_width="match_parent"

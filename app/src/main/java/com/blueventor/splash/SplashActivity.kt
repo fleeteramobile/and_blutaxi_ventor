@@ -33,54 +33,50 @@ class SplashActivity : AppCompatActivity() {
 
         // Optional: set light or dark status bar icons
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        lifecycleScope.launch {
-            delay(3000)
-            startNewActivity<MainActivity>()
-            finish()
-        }
 
-//        val userId = sessionManager.getString("_id", "Not Found")
-//        if (userId != "Not Found" && userId.isNotEmpty()) {
-//            lifecycleScope.launch {
-//                delay(3000)
-//                startNewActivity<MainActivity>()
-//                finish()
-//            }
-//        } else {
-//            sessionManager.saveString("authkey", "")
-//            sessionManager.saveString("userAuth", "")
-//            val request = RequestCheckCompanyDomain(
-//                company_domain = "devbluetaxi",
-//                company_main_domain = "devbluetaxi",
-//                device_type = "1"
-//            )
-//            viewModel.checkCompanyDomain(request)
-//            lifecycleScope.launch {
-//                viewModel.uiState.collect { state ->
-//                    when (state) {
-//                        is UiState.Loading -> {}
-//                        is UiState.Success<*> -> {
-//                            val response = state.data
-//                            if (response != null)
-//                            {
-//                                lifecycleScope.launch {
-//                                    delay(3000)
-//                                    startNewActivity<MainActivity>()
-//                                    finish()
-//                                }
-//
-//                            }
-//                        }
-//
-//                        is UiState.Error -> {}
-//                        is UiState.Idle -> {}
-//                        else -> {}
-//                    }
-//                }
-//
-//
-//            }
-//        }
+
+        val userId = sessionManager.getString("_id", "Not Found")
+        if (userId != "Not Found" && userId.isNotEmpty()) {
+            lifecycleScope.launch {
+                delay(3000)
+                startNewActivity<MainActivity>()
+                finish()
+            }
+        } else {
+            sessionManager.saveString("authkey", "")
+            sessionManager.saveString("userAuth", "")
+            val request = RequestCheckCompanyDomain(
+                company_domain = "devbluetaxi",
+                company_main_domain = "devbluetaxi",
+                device_type = "1"
+            )
+            viewModel.checkCompanyDomain(request)
+            lifecycleScope.launch {
+                viewModel.uiState.collect { state ->
+                    when (state) {
+                        is UiState.Loading -> {}
+                        is UiState.Success<*> -> {
+                            val response = state.data
+                            if (response != null)
+                            {
+                                lifecycleScope.launch {
+                                    delay(3000)
+                                    startNewActivity<MainActivity>()
+                                    finish()
+                                }
+
+                            }
+                        }
+
+                        is UiState.Error -> {}
+                        is UiState.Idle -> {}
+                        else -> {}
+                    }
+                }
+
+
+            }
+        }
 
 
     }
