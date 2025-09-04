@@ -70,7 +70,8 @@
 
                         <TextView
                             android:gravity="center"
-                            android:text="10"
+                            android:text=""
+                            android:id="@+id/active_driver"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="20dp"
@@ -82,6 +83,7 @@
                             android:text="Active Driver"
                             android:textColor="@color/white"
                             android:textStyle="bold"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="8dp"/>
@@ -105,10 +107,12 @@
 
                         <TextView
                             android:gravity="center"
-                            android:text="10"
+
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="20dp"
+                            android:id="@+id/inactive_driver"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="8dp"/>
@@ -139,10 +143,12 @@
                         >
                         <TextView
                             android:gravity="center"
-                            android:text="10"
+
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="20dp"
+                            android:id="@+id/blocked_driver"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="8dp"/>
@@ -151,6 +157,7 @@
                             android:text="Blocked Driver"
                             android:textColor="@color/white"
                             android:textStyle="bold"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="8dp"/>
@@ -205,6 +212,8 @@
                             android:text="100"
                             android:textColor="#AEB5BE"
                             android:textStyle="bold"
+                            android:id="@+id/total_trips_count"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="8dp"/>
@@ -242,6 +251,8 @@
                             android:text="100"
                             android:textColor="#AEB5BE"
                             android:textStyle="bold"
+                            android:id="@+id/completed_trips_count"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="8dp"/>
@@ -279,6 +290,8 @@
                             android:text="100"
                             android:textColor="#AEB5BE"
                             android:textStyle="bold"
+                            android:id="@+id/cancel_trips_count"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="8dp"/>
@@ -353,6 +366,8 @@
                             android:textColor="#F52D56"
                             android:textStyle="bold"
                             android:textSize="16sp"
+                            android:id="@+id/total_amount"
+
                             android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
@@ -368,34 +383,88 @@
                         android:padding="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-
-                        <TextView
-                            android:text="₹350.00\nCash"
+                        <LinearLayout
+                            android:orientation="vertical"
                             android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:textColor="@color/black"
-android:textSize="16dp"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:gravity="left"
+                                android:text="Cash"
+                                android:textColor="#AEB5BE"
+                                android:textStyle="bold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"/>
 
-                        <TextView
-                            android:text="₹1025.00\nOnline Payments"
+                            <TextView
+                                android:gravity="left"
+                                android:text="100"
+                                android:textColor="#AEB5BE"
+                                android:textStyle="bold"
+                                android:id="@+id/cash_payment"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:orientation="vertical"
                             android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:textColor="@color/black"
-                            android:textSize="16dp"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:gravity="left"
+                                android:text="Online Payments"
+                                android:textColor="#AEB5BE"
+                                android:textStyle="bold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"/>
 
-                        <TextView
-                            android:text="₹0.00\nDiscount"
+                            <TextView
+                                android:gravity="left"
+                                android:text="100"
+                                android:textColor="#AEB5BE"
+                                android:textStyle="bold"
+                                android:id="@+id/card_payment"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
                             android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:textSize="16dp"
-                            android:textColor="@color/black"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:gravity="left"
+                                android:text="Discount"
+                                android:textColor="#AEB5BE"
+                                android:textStyle="bold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"/>
 
-                            android:layout_height="wrap_content"/>
+                            <TextView
+                                android:gravity="left"
+                                android:text="100"
+                                android:textColor="#AEB5BE"
+                                android:textStyle="bold"
+                                android:id="@+id/discound_payment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"/>
+                        </LinearLayout>
+
+
                     </LinearLayout>
 
                     <!-- Button -->
