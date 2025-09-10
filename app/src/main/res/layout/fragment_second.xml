@@ -1,167 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <!-- Top App Bar with search -->
     <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="12dp"
-        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       >
+        android:layout_marginTop="25dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
 
         <ImageView
 
-            android:background="@drawable/menu_bar"
-
             android:layout_width="60dp"
+
             android:layout_height="80dp"
-            android:padding="4dp"/>
+            android:background="@drawable/menu_bar"
+            android:padding="4dp" />
 
         <EditText
             android:id="@+id/etSearch"
-            android:hint="Search"
-            android:layout_marginStart="8dp"
-            android:padding="10dp"
-            android:background="@drawable/bg_search"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_search"
             android:drawableLeft="@drawable/ic_search"
-            android:drawablePadding="8dp"/>
+            android:drawablePadding="8dp"
+            android:hint="Search"
+            android:padding="10dp" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scrollbars="none"
         android:layout_weight="1"
         android:padding="12dp">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <!-- Driver Status Row -->
             <com.google.android.material.card.MaterialCardView
-                android:orientation="horizontal"
-                android:gravity="center"
                 android:layout_width="match_parent"
-                app:cardBackgroundColor="@color/app_color"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:cardBackgroundColor="@color/app_color">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
                     <!-- Active Driver -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="80dp"
-                        android:layout_weight="1"
                         android:layout_margin="4dp"
-                        app:cardCornerRadius="12dp"
+                        android:layout_weight="1"
                         android:orientation="vertical"
-                        >
+                        app:cardCornerRadius="12dp">
 
                         <TextView
-                            android:gravity="center"
-                            android:text=""
                             android:id="@+id/active_driver"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:textSize="20dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"/>
-                        <TextView
                             android:gravity="center"
+                            android:padding="8dp"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="8dp"
+
                             android:text="Active Driver"
                             android:textColor="@color/white"
-                            android:textStyle="bold"
-
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
+
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="25dp"
                         android:layout_marginBottom="25dp"
-                        android:background="@color/white"/>
+                        android:background="@color/white" />
 
                     <!-- Inactive Driver -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="80dp"
-                        android:layout_weight="1"
                         android:layout_margin="4dp"
+                        android:layout_weight="1"
                         android:orientation="vertical"
-                        app:cardCornerRadius="12dp"
-                        >
+                        app:cardCornerRadius="12dp">
 
                         <TextView
-                            android:gravity="center"
-
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:textSize="20dp"
                             android:id="@+id/inactive_driver"
 
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"/>
-                        <TextView
                             android:gravity="center"
-                            android:text="Inactive Driver"
+                            android:padding="8dp"
+
                             android:textColor="@color/white"
-                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"/>
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="Inactive Driver"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
+
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="25dp"
                         android:layout_marginBottom="25dp"
-                        android:background="@color/white"/>
+                        android:background="@color/white" />
                     <!-- Blocked Driver -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="80dp"
-                        android:layout_weight="1"
                         android:layout_margin="4dp"
+                        android:layout_weight="1"
                         android:orientation="vertical"
-                        app:cardCornerRadius="12dp"
-                        >
-                        <TextView
-                            android:gravity="center"
+                        app:cardCornerRadius="12dp">
 
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            android:textSize="20dp"
+                        <TextView
                             android:id="@+id/blocked_driver"
 
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"/>
-                        <TextView
                             android:gravity="center"
-                            android:text="Blocked Driver"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
+                            android:padding="8dp"
 
+                            android:textColor="@color/white"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"/>
+                            android:gravity="center"
+                            android:padding="8dp"
+
+                            android:text="Blocked Driver"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>
@@ -172,206 +175,214 @@
 
             <!-- Today Activity Title -->
             <TextView
-                android:text="Today Activity"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#2A2A2A"
-                android:layout_marginTop="16dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Today Activity"
+                android:textColor="#2A2A2A"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <!-- Rides Summary -->
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:orientation="vertical"
-                    android:gravity="center"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@color/white"
-                    android:layout_height="wrap_content">
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:cardBackgroundColor="@color/white">
+
                     <LinearLayout
-                        android:orientation="vertical"
-                        android:gravity="center"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
                         <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:gravity="left"
+                            android:padding="8dp"
                             android:text="Total rides"
                             android:textColor="#000"
-                            android:textStyle="bold"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"/>
+                            android:textStyle="bold" />
 
                         <TextView
-                            android:gravity="left"
-                            android:text=""
-                            android:textColor="#000"
-                            android:textStyle="bold"
                             android:id="@+id/total_trips_count"
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"/>
+                            android:gravity="left"
+                            android:padding="8dp"
+
+                            android:text=""
+                            android:textColor="#000"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:orientation="vertical"
-                    android:gravity="center"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
 
-                    app:cardBackgroundColor="@color/white"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical"
+                    app:cardBackgroundColor="@color/white">
+
                     <LinearLayout
-                        android:orientation="vertical"
-                        android:gravity="center"
                         android:layout_width="match_parent"
-                        app:cardBackgroundColor="@color/app_color"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:cardBackgroundColor="@color/app_color">
+
                         <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:gravity="left"
+                            android:padding="8dp"
                             android:text="Completed"
                             android:textColor="#000"
-                            android:textStyle="bold"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"/>
+                            android:textStyle="bold" />
 
                         <TextView
-                            android:gravity="left"
-                            android:text=""
-                            android:textColor="#000"
-                            android:textStyle="bold"
                             android:id="@+id/completed_trips_count"
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"/>
+                            android:gravity="left"
+                            android:padding="8dp"
+
+                            android:text=""
+                            android:textColor="#000"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    android:orientation="vertical"
-                    android:gravity="center"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
 
-                    app:cardBackgroundColor="@color/white"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical"
+                    app:cardBackgroundColor="@color/white">
+
                     <LinearLayout
-                        android:orientation="vertical"
-                        android:gravity="center"
                         android:layout_width="match_parent"
-                        app:cardBackgroundColor="@color/app_color"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:gravity="left"
-                            android:text="Cancel"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:cardBackgroundColor="@color/app_color">
 
-                            android:textStyle="bold"
-                            android:textColor="#000"
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"/>
+
+                            android:gravity="left"
+                            android:padding="8dp"
+                            android:text="Cancel"
+                            android:textColor="#000"
+                            android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/cancel_trips_count"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:gravity="left"
+                            android:padding="8dp"
+
                             android:text=""
                             android:textColor="#000"
-                            android:textStyle="bold"
-                            android:id="@+id/cancel_trips_count"
-
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp"/>
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
-
 
 
             </LinearLayout>
 
             <!-- Revenue Card -->
             <com.google.android.material.card.MaterialCardView
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 app:cardBackgroundColor="@color/white"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
-                    android:orientation="vertical"
-
                     android:layout_width="match_parent"
 
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:background="#F7F7F7"
                         android:padding="10dp"
-                        android:layout_height="wrap_content"
 
                         >
-                        <LinearLayout
-                            android:orientation="horizontal"
 
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <ImageView
-                                android:src="@drawable/car_image"
                                 android:layout_width="60dp"
-                                android:layout_height="60dp"/>
+                                android:layout_height="60dp"
+                                android:src="@drawable/car_image" />
 
                             <LinearLayout
-                                android:orientation="vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="12dp">
+                                android:layout_marginStart="12dp"
+                                android:orientation="vertical">
 
                                 <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:text="Today Revenue"
-                                    android:textStyle="bold"
-                                    android:textSize="18sp"
                                     android:textColor="@color/black"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
 
                                 <TextView
-                                    android:text=""
-                                    android:textSize="14sp"
-                                    android:textColor="@color/black"
-android:id="@+id/currentDate"
+                                    android:id="@+id/currentDate"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
                             </LinearLayout>
 
 
                         </LinearLayout>
-                        <TextView
-                            android:text=""
-                            android:textColor="#F52D56"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
-                            android:id="@+id/total_amount"
 
-                            android:layout_alignParentRight="true"
+                        <TextView
+                            android:id="@+id/total_amount"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:text=""
+
+                            android:textColor="#F52D56"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
 
                     </RelativeLayout>
@@ -379,90 +390,95 @@ android:id="@+id/currentDate"
 
                     <!-- Payment Breakdown -->
                     <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_margin="10dp"
-                        android:padding="5dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
                         <LinearLayout
-                            android:orientation="vertical"
-                            android:gravity="center"
                             android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:layout_height="wrap_content">
+                            android:gravity="center"
+                            android:orientation="vertical">
+
                             <TextView
-                                android:gravity="left"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="8dp"
                                 android:text="Cash"
                                 android:textColor="#000"
-                                android:textStyle="bold"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="8dp"/>
+                                android:textStyle="bold" />
 
                             <TextView
-                                android:gravity="left"
-                                android:text=""
-                                android:textColor="#000"
-                                android:textStyle="bold"
                                 android:id="@+id/cash_payment"
-
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="8dp"/>
+                                android:gravity="center"
+                                android:padding="8dp"
+
+                                android:text=""
+                                android:textColor="#000"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
 
                         <LinearLayout
-                            android:orientation="vertical"
-                            android:gravity="center"
                             android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_height="wrap_content">
+                            android:gravity="center"
+                            android:orientation="vertical">
+
                             <TextView
-                                android:gravity="left"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="8dp"
                                 android:text="Online "
                                 android:textColor="#000"
-                                android:textStyle="bold"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="8dp"/>
+                                android:textStyle="bold" />
 
                             <TextView
-                                android:gravity="left"
-                                android:text=""
-                                android:textColor="#000"
-                                android:textStyle="bold"
                                 android:id="@+id/card_payment"
-
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="8dp"/>
+                                android:gravity="center"
+                                android:padding="8dp"
+
+                                android:text=""
+                                android:textColor="#000"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <LinearLayout
-                            android:orientation="vertical"
-                            android:gravity="center"
                             android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:gravity="left"
-                                android:text="Discount"
-                                android:textColor="#000"
-                                android:textStyle="bold"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="8dp"/>
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <TextView
-                                android:gravity="left"
-                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="Discount"
                                 android:textColor="#000"
-                                android:textStyle="bold"
+                                android:textStyle="bold" />
+
+                            <TextView
                                 android:id="@+id/discound_payment"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="8dp"/>
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text=""
+                                android:textColor="#000"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
 
@@ -470,54 +486,99 @@ android:id="@+id/currentDate"
 
                     <!-- Button -->
                     <Button
-                        android:text="Net Earning"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:backgroundTint="#EDAE10"
-                        android:textColor="@color/white"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:text="Net Earning"
+                        android:textColor="@color/white" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Car Performance Card -->
             <com.google.android.material.card.MaterialCardView
-                android:layout_marginTop="12dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:padding="12dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
 
-                    <ImageView
-                        android:src="@drawable/car_image"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"/>
+                    android:background="#fff"
 
-                    <LinearLayout
-                        android:orientation="vertical"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp">
+                        android:background="#F7F7F7"
+                        android:padding="10dp"
 
-                        <TextView
-                            android:text="Car Performance"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        >
 
-                        <TextView
-                            android:text="09-07-2025"
-                            android:textSize="12sp"
-                            android:textColor="@color/gray"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/car_image" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Car Performance"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/currentDate_car"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewDrivers"
+                        android:layout_width="match_parent"
+                        android:background="@color/white"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="8dp"/>
+
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:backgroundTint="#EDAE10"
+                        android:text="View all"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

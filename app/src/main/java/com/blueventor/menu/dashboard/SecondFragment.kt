@@ -1,4 +1,4 @@
-package com.blueventor.menu
+package com.blueventor.menu.dashboard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,12 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.blueventor.R
 import com.blueventor.databinding.FragmentSecondBinding
 import com.blueventor.network.UiState
+import com.blueventor.network.request.RequestDashBoardCarPerformanceDetails
 import com.blueventor.network.request.RequestDashBoardDetails
 import com.blueventor.network.request.Requestloginaccess
 import com.blueventor.network.response.RespondeLoginAccess
+import com.blueventor.network.response.ResponseCarPerformance
 import com.blueventor.network.response.ResponseDashBoardDetails
 import com.blueventor.session.SessionManager
 import com.blueventor.util.logDebugMessage
@@ -63,6 +66,7 @@ class SecondFragment : Fragment() {
         // Current Date
          currentDate = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
 binding.currentDate.setText(currentDate)
+binding.currentDateCar.setText(currentDate)
         // First day of current month
         calendar.set(Calendar.DAY_OF_MONTH, 1)
          firstDay = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
@@ -72,10 +76,53 @@ binding.currentDate.setText(currentDate)
 
         logDebugMessage("userAuth", userId)
         loadDashBoadApi()
+        loadCarpermancedetails()
         getDashBoadDetails()
+        getCarPerformanceDetails()
 
     }
 
+
+
+    private fun loadCarpermancedetails() {
+        lifecycleScope.launch {
+            val request = RequestDashBoardCarPerformanceDetails(
+                company_id = company_id, start_date = firstDay,
+                end_date = currentDate,
+                limit = "10",
+                offset = "0",
+                search = "",
+
+            )
+            dashboardViewModel.getDashBoardCarPerformanceDetails(request)
+        }
+    }
+    private fun getCarPerformanceDetails() {
+lifecycleScope.launch {
+    dashboardViewModel.uiStateCarPerformance.collect{ cardetails ->
+        when(cardetails)
+        {
+            is UiState.Error -> {}
+            UiState.Idle -> {
+
+            }
+            UiState.Loading -> {}
+            is UiState.Success -> {
+                val response = cardetails.data as ResponseCarPerformance
+                if(response!=null)
+                {
+                    binding.recyclerViewDrivers.layoutManager =
+                        LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+
+                    val adapter = DriverAdapter(response.data)
+                    binding.recyclerViewDrivers.adapter = adapter
+
+                }
+            }
+        }
+    }
+}
+    }
     private fun getDashBoadDetails() {
         lifecycleScope.launch {
             dashboardViewModel.uiState.collect { state ->
@@ -118,7 +165,7 @@ binding.currentDate.setText(currentDate)
     private fun loadDashBoadApi() {
         lifecycleScope.launch {
             val request = RequestDashBoardDetails(
-                company_id = company_id, start_date = currentDate, end_date = currentDate
+                company_id = company_id, start_date = firstDay, end_date = currentDate
 
             )
             dashboardViewModel.getDashBoardDetails(request)

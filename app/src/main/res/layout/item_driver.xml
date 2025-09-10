@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+      app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/white"
+        android:elevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:id="@+id/tvTaxiNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TN43 P 9459"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:paddingTop="6dp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical">
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="1"
+                        android:progressTint="@color/starColor"
+                        android:stepSize="0.1"
+                        android:isIndicator="true"
+                        android:rating="4.9" />
+
+                    <TextView
+                        android:id="@+id/tvRatingValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="4.9"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!-- Taxi Image -->
+
+
+            <!-- Taxi No -->
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₹550"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="15sp"
+            android:paddingTop="4dp" />
+
+        <!-- Rides -->
+        <TextView
+            android:id="@+id/tvRides"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rides: 2"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:paddingTop="4dp" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/ivTaxi"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="1.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/car_image" />
+</LinearLayout>
+            <!-- Price -->
+
+
+            <!-- Rating -->
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

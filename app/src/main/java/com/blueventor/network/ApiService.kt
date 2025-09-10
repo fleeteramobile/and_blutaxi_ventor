@@ -1,9 +1,11 @@
 package com.blueventor.network
 
 import com.blueventor.network.request.RequestCheckCompanyDomain
+import com.blueventor.network.request.RequestDashBoardCarPerformanceDetails
 import com.blueventor.network.request.RequestDashBoardDetails
 import com.blueventor.network.request.Requestloginaccess
 import com.blueventor.network.response.RespondeLoginAccess
+import com.blueventor.network.response.ResponseCarPerformance
 import com.blueventor.network.response.ResponseCheckCompanyDomain
 import com.blueventor.network.response.ResponseDashBoardDetails
 import retrofit2.http.Body
@@ -26,4 +28,9 @@ interface ApiService {
     suspend fun getDashBoardDetails(
         @Body requestDashBoardDetails: RequestDashBoardDetails
     ):ResponseDashBoardDetails
+
+    @POST("=?type=taxiwise_trip_count")
+    suspend fun getCarPerformanceDetails(
+        @Body requestDashBoardCarPerformanceDetails: RequestDashBoardCarPerformanceDetails
+    ):ResponseCarPerformance
 }
