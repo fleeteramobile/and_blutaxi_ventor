@@ -64,24 +64,25 @@ class SecondFragment : Fragment() {
         val calendar = Calendar.getInstance()
 
         // Current Date
-         currentDate = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
-binding.currentDate.setText(currentDate)
-binding.currentDateCar.setText(currentDate)
+        currentDate = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
+        binding.currentDate.setText(currentDate)
+        binding.currentDateCar.setText(currentDate)
         // First day of current month
         calendar.set(Calendar.DAY_OF_MONTH, 1)
-         firstDay = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
+        firstDay = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
 
-        println("First Day of Current Month: $firstDay")
-        println("Current Date: $currentDate")
+        _binding!!.netEarnings.setOnClickListener {
+            findNavController().navigate(R.id.driverDetailsFragment)
+        }
+        _binding!!.cabPerformance.setOnClickListener {
+            findNavController().navigate(R.id.cabsListFragment)
+
+        }
 
         logDebugMessage("userAuth", userId)
-        loadDashBoadApi()
-        loadCarpermancedetails()
-        getDashBoadDetails()
-        getCarPerformanceDetails()
+
 
     }
-
 
 
     private fun loadCarpermancedetails() {
@@ -93,36 +94,41 @@ binding.currentDateCar.setText(currentDate)
                 offset = "0",
                 search = "",
 
-            )
+                )
             dashboardViewModel.getDashBoardCarPerformanceDetails(request)
         }
     }
+
     private fun getCarPerformanceDetails() {
-lifecycleScope.launch {
-    dashboardViewModel.uiStateCarPerformance.collect{ cardetails ->
-        when(cardetails)
-        {
-            is UiState.Error -> {}
-            UiState.Idle -> {
+        lifecycleScope.launch {
+            dashboardViewModel.uiStateCarPerformance.collect { cardetails ->
+                when (cardetails) {
+                    is UiState.Error -> {}
+                    UiState.Idle -> {
 
-            }
-            UiState.Loading -> {}
-            is UiState.Success -> {
-                val response = cardetails.data as ResponseCarPerformance
-                if(response!=null)
-                {
-                    binding.recyclerViewDrivers.layoutManager =
-                        LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+                    }
 
-                    val adapter = DriverAdapter(response.data)
-                    binding.recyclerViewDrivers.adapter = adapter
+                    UiState.Loading -> {}
+                    is UiState.Success -> {
+                        val response = cardetails.data as ResponseCarPerformance
+                        if (response != null) {
+                            binding.recyclerViewDrivers.layoutManager =
+                                LinearLayoutManager(
+                                    requireActivity(),
+                                    LinearLayoutManager.HORIZONTAL,
+                                    false
+                                )
 
+                            val adapter = DriverAdapter(response.data)
+                            binding.recyclerViewDrivers.adapter = adapter
+
+                        }
+                    }
                 }
             }
         }
     }
-}
-    }
+
     private fun getDashBoadDetails() {
         lifecycleScope.launch {
             dashboardViewModel.uiState.collect { state ->
@@ -174,6 +180,15 @@ lifecycleScope.launch {
 
     override fun onDestroyView() {
         super.onDestroyView()
+
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadDashBoadApi()
+        loadCarpermancedetails()
+        getDashBoadDetails()
+        getCarPerformanceDetails()
     }
 }

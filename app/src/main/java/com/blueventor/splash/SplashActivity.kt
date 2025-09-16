@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
+import com.blueventor.BuildConfig
 import com.blueventor.R
 import com.blueventor.menu.MainActivity
 import com.blueventor.network.UiState
@@ -36,6 +37,7 @@ class SplashActivity : AppCompatActivity() {
 
 
         val userId = sessionManager.getString("_id", "Not Found")
+        println("userId" + " "+userId)
         if (userId != "Not Found" && userId.isNotEmpty()) {
             lifecycleScope.launch {
                 delay(3000)
@@ -43,11 +45,20 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             }
         } else {
+            println("userId_new" + " "+"klamklzcm")
+            println("userId_new" + " "+BuildConfig.BASE_URL)
+
             sessionManager.saveString("authkey", "")
             sessionManager.saveString("userAuth", "")
+//            val request = RequestCheckCompanyDomain(
+//                company_domain = "devbluetaxi",
+//                company_main_domain = "devbluetaxi",
+//                device_type = "1"
+//            )
+
             val request = RequestCheckCompanyDomain(
-                company_domain = "devbluetaxi",
-                company_main_domain = "devbluetaxi",
+                company_domain = BuildConfig.COMPANY_MAIN_DOMAIN,
+                company_main_domain =BuildConfig.COMPANY_MAIN_DOMAIN,
                 device_type = "1"
             )
             viewModel.checkCompanyDomain(request)

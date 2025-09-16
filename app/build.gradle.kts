@@ -14,6 +14,23 @@ android {
     flavorDimensions += "environment"
 
     productFlavors {
+        create("uat")
+        {
+            dimension = "environment"
+            applicationIdSuffix = ".uat"
+
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"https://uatbluetaxi.fleetera.io/vendorapi201/index/\""
+            )
+            buildConfigField("String", "API_KEY", "\"uatbluetaxi\"")
+            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"uatbluetaxi\"")
+            buildConfigField("String", "Flavors", "\"uat\"")
+
+
+        }
+        
         create("dev")
         {
             dimension = "environment"
@@ -30,22 +47,7 @@ android {
 
         }
 
-        create("uat")
-        {
-            dimension = "environment"
-            applicationIdSuffix = ".uat"
 
-            buildConfigField(
-                "String",
-                "BASE_URL",
-                "\"https://uatbluetaxi.fleetera.io/vendorapi201/index/\""
-            )
-            buildConfigField("String", "API_KEY", "\"uatbluetaxi\"")
-            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"devbluetaxi\"")
-            buildConfigField("String", "Flavors", "\"uat\"")
-
-
-        }
 
         create("qatesting")
         {
@@ -55,10 +57,10 @@ android {
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://testingonewaytriptaxi.ardhas.com/vendorapi201/index/\""
+                "\"https://testingbluetaxi.fleetera.io/vendorapi201/index/\""
             )
-            buildConfigField("String", "API_KEY", "\"testingonewaytriptaxi\"")
-            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"devbluetaxi\"")
+            buildConfigField("String", "API_KEY", "\"testingbluetaxi\"")
+            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"testingbluetaxi\"")
             buildConfigField("String", "Flavors", "\"testing\"")
 
 
@@ -69,15 +71,17 @@ android {
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://onewaytriptaxi.com/vendorapi201/index/\""
+                "\"https://https://bluetaxi.in//vendorapi201/index/\""
             )
-            buildConfigField("String", "API_KEY", "\"liveonewaytriptaxi\"")
-            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"devbluetaxi\"")
+            buildConfigField("String", "API_KEY", "\"bluetaxi\"")
+            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"bluetaxi\"")
             buildConfigField("String", "Flavors", "\"live\"")
 
         }
 
     }
+    // dev - dev , uat - uatDebug
+    defaultPublishConfig = "uatDebug"
 
     defaultConfig {
         applicationId = "com.blueventor"

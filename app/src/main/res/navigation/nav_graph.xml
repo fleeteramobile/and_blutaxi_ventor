@@ -11,9 +11,7 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -21,12 +19,25 @@
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/driverDetailsFragment"
-        android:name="com.blueventor.menu.DriverDetailsFragment"
+        android:name="com.blueventor.menu.driverlist.DriverDetailsFragment"
         android:label="DriverDetailsFragment" />
+    <fragment
+        android:id="@+id/driverInfoFragment"
+        android:name="com.blueventor.menu.driverdetails.DriverInfoFragment"
+        android:label="fragment_driver_info"
+        tools:layout="@layout/fragment_driver_info" />
+    <fragment
+        android:id="@+id/cabsListFragment"
+        android:name="com.blueventor.menu.cablist.CabsListFragment"
+        android:label="fragment_cabs_list"
+        tools:layout="@layout/fragment_cabs_list" />
+    <fragment
+        android:id="@+id/tripListFragment"
+        android:name="com.blueventor.menu.triplist.TripListFragment"
+        android:label="fragment_trip_list"
+        tools:layout="@layout/fragment_trip_list" />
 </navigation>
