@@ -11,11 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.blueventor.R
 import com.blueventor.databinding.FragmentCabsListBinding
 import com.blueventor.databinding.FragmentDriverDetailsBinding
+import com.blueventor.menu.MainActivity
 import com.blueventor.menu.driverlist.DriverListAdapter
 import com.blueventor.network.UiState
 import com.blueventor.network.request.RequestDashBoardCarPerformanceDetails
 import com.blueventor.network.response.ResponseCarPerformance
 import com.blueventor.session.SessionManager
+import com.blueventor.util.showDatePicker
 import com.blueventor.viewmodel.DashboardViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -44,9 +46,9 @@ class CabsListFragment : Fragment() {
         val calendar = Calendar.getInstance()
 
 
-        currentDate = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
+        currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
         calendar.set(Calendar.DAY_OF_MONTH, 1)
-        firstDay = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
+        firstDay = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
 
     }
 
@@ -59,6 +61,36 @@ class CabsListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        company_id = sessionManager.getString("company_id", "Not Found")
+        val calendar = Calendar.getInstance()
+
+
+        currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
+        calendar.set(Calendar.DAY_OF_MONTH, 1)
+        firstDay = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
+
+        binding!!.startDateTxt.setText(firstDay)
+        binding!!.endDateTxt.setText(currentDate)
+
+        binding!!.startDate.setOnClickListener {
+            showDatePicker(_binding!!.startDateTxt)
+        }
+
+        binding!!.endDateTxt.setOnClickListener {
+            showDatePicker(_binding!!.startDateTxt)
+        }
+        binding!!.btnGo.setOnClickListener {
+            loadCarpermancedetails()
+        }
+
+        _binding!!.menuBar.setOnClickListener {
+            (activity as? MainActivity)?.toggleDrawer()
+
+        }
+
+    }
     override fun onResume() {
         super.onResume()
         loadCarpermancedetails()
@@ -68,8 +100,9 @@ class CabsListFragment : Fragment() {
     private fun loadCarpermancedetails() {
         lifecycleScope.launch {
             val request = RequestDashBoardCarPerformanceDetails(
-                company_id = company_id, start_date = firstDay,
-                end_date = currentDate,
+                company_id = company_id,
+                start_date = binding!!.startDateTxt.text.toString(),
+                end_date = binding!!.endDateTxt.text.toString(),
                 limit = "10",
                 offset = "0",
                 search = "",
@@ -83,7 +116,10 @@ class CabsListFragment : Fragment() {
         lifecycleScope.launch {
             dashboardViewModel.uiStateCarPerformance.collect { cardetails ->
                 when (cardetails) {
-                    is UiState.Error -> {}
+                    is UiState.Error -> {
+                        binding.noData.visibility = View.VISIBLE
+                        binding.recyclerViewCabs.visibility = View.GONE
+                    }
                     UiState.Idle -> {
 
                     }
@@ -92,18 +128,24 @@ class CabsListFragment : Fragment() {
                     is UiState.Success -> {
                         val response = cardetails.data as ResponseCarPerformance
                         if (response != null) {
-                            println("Carpermonse_view" + " " + "djosajdklaskldaskl")
-                            binding.recyclerViewCabs.layoutManager =
-                                LinearLayoutManager(
-                                    requireActivity(),
-                                    LinearLayoutManager.VERTICAL,
-                                    false
-                                )
+                            if (response.status ==1 ) {
+                                binding.noData.visibility = View.GONE
+                                binding.recyclerViewCabs.visibility = View.VISIBLE
+                                binding.recyclerViewCabs.layoutManager =
+                                    LinearLayoutManager(
+                                        requireActivity(),
+                                        LinearLayoutManager.VERTICAL,
+                                        false
+                                    )
 
-                            val adapter =
-                                CabListAdapter( response.data)
-                            binding.recyclerViewCabs.adapter = adapter
-
+                                val adapter =
+                                    CabListAdapter(response.data)
+                                binding.recyclerViewCabs.adapter = adapter
+                            }
+                            else{
+                                binding.noData.visibility = View.VISIBLE
+                                binding.recyclerViewCabs.visibility = View.GONE
+                            }
                         }
                     }
                 }

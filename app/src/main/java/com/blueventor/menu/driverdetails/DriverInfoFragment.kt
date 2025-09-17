@@ -35,11 +35,13 @@ class DriverInfoFragment : Fragment() {
     private val binding get() = _binding!!
     val driverDetailsViewModel: DriverDetailsViewModel by viewModels()
     var company_id = ""
+    var driver_id = ""
     var currentDate = ""
     var firstDay = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         company_id = sessionManager.getString("company_id", "Not Found")
+        driver_id = sessionManager.getString("driver_id", "Not Found")
         val calendar = Calendar.getInstance()
 
 
@@ -62,7 +64,6 @@ class DriverInfoFragment : Fragment() {
                     is UiState.Success -> {
                         val response = cardetails.data as ResponseDriverDetails
                         if (response != null) {
-                            println("Carpermonse_view" + " " + response)
 
                             _binding!!.driverName.setText(response.data.name)
                             _binding!!.carPlate.setText(response.data.taxi_no)
@@ -97,7 +98,7 @@ class DriverInfoFragment : Fragment() {
             val request = RequestDriverDetails(
                 company_id = company_id, start_date = firstDay,
                 end_date = currentDate,
-                driver_id = "35"
+                driver_id = driver_id
 
             )
             driverDetailsViewModel.getDriverDetails(request)
@@ -117,5 +118,12 @@ class DriverInfoFragment : Fragment() {
         super.onResume()
         loadDriverDetaislAPI()
         getDrierDetailsDetails()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.ivBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
     }
 }

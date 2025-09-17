@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blueventor.R
 import com.blueventor.databinding.FragmentSecondBinding
+import com.blueventor.menu.MainActivity
 import com.blueventor.network.UiState
 import com.blueventor.network.request.RequestDashBoardCarPerformanceDetails
 import com.blueventor.network.request.RequestDashBoardDetails
@@ -21,6 +22,7 @@ import com.blueventor.network.response.ResponseDashBoardDetails
 import com.blueventor.session.SessionManager
 import com.blueventor.util.logDebugMessage
 import com.blueventor.util.showAlert
+import com.blueventor.util.showDatePicker
 import com.blueventor.viewmodel.DashboardViewModel
 import com.blueventor.viewmodel.VendorLoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,18 +66,43 @@ class SecondFragment : Fragment() {
         val calendar = Calendar.getInstance()
 
         // Current Date
-        currentDate = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
+        currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
         binding.currentDate.setText(currentDate)
         binding.currentDateCar.setText(currentDate)
         // First day of current month
         calendar.set(Calendar.DAY_OF_MONTH, 1)
-        firstDay = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(calendar.time)
+        firstDay = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
+        _binding!!.startDateTxt.setText(firstDay)
+        _binding!!.endDateTxt.setText(currentDate)
 
+        _binding!!.startDate.setOnClickListener {
+            showDatePicker(_binding!!.startDateTxt)
+        }
+
+        _binding!!.endDateTxt.setOnClickListener {
+            showDatePicker(_binding!!.startDateTxt)
+        }
+        _binding!!.btnGo.setOnClickListener {
+            loadDashBoadApi()
+            loadCarpermancedetails()
+        }
         _binding!!.netEarnings.setOnClickListener {
             findNavController().navigate(R.id.driverDetailsFragment)
         }
         _binding!!.cabPerformance.setOnClickListener {
             findNavController().navigate(R.id.cabsListFragment)
+
+        }
+        _binding!!.totalRidesLay.setOnClickListener {
+            findNavController().navigate(R.id.tripListFragment)
+
+        }
+        _binding!!.completedLay.setOnClickListener {
+            findNavController().navigate(R.id.tripListFragment)
+
+        }
+        _binding!!.menuBar.setOnClickListener {
+            (activity as? MainActivity)?.toggleDrawer()
 
         }
 
@@ -88,8 +115,9 @@ class SecondFragment : Fragment() {
     private fun loadCarpermancedetails() {
         lifecycleScope.launch {
             val request = RequestDashBoardCarPerformanceDetails(
-                company_id = company_id, start_date = firstDay,
-                end_date = currentDate,
+                company_id = company_id,
+                start_date = _binding!!.startDateTxt.text.toString(),
+                end_date = _binding!!.endDateTxt.text.toString(),
                 limit = "10",
                 offset = "0",
                 search = "",
@@ -103,7 +131,12 @@ class SecondFragment : Fragment() {
         lifecycleScope.launch {
             dashboardViewModel.uiStateCarPerformance.collect { cardetails ->
                 when (cardetails) {
-                    is UiState.Error -> {}
+                    is UiState.Error -> {
+                        binding.recyclerViewDrivers.visibility = View.GONE
+                        binding.notrips.visibility = View.VISIBLE
+
+                    }
+
                     UiState.Idle -> {
 
                     }
@@ -112,15 +145,23 @@ class SecondFragment : Fragment() {
                     is UiState.Success -> {
                         val response = cardetails.data as ResponseCarPerformance
                         if (response != null) {
-                            binding.recyclerViewDrivers.layoutManager =
-                                LinearLayoutManager(
-                                    requireActivity(),
-                                    LinearLayoutManager.HORIZONTAL,
-                                    false
-                                )
+                            if (response.status == 1) {
+                                binding.recyclerViewDrivers.visibility = View.VISIBLE
+                                binding.notrips.visibility = View.GONE
+                                binding.recyclerViewDrivers.layoutManager =
+                                    LinearLayoutManager(
+                                        requireActivity(),
+                                        LinearLayoutManager.HORIZONTAL,
+                                        false
+                                    )
 
-                            val adapter = DriverAdapter(response.data)
-                            binding.recyclerViewDrivers.adapter = adapter
+                                val adapter = DriverAdapter(response.data)
+                                binding.recyclerViewDrivers.adapter = adapter
+                            } else {
+                                binding.notrips.visibility = View.VISIBLE
+                                binding.recyclerViewDrivers.visibility = View.GONE
+                            }
+
 
                         }
                     }
@@ -171,7 +212,8 @@ class SecondFragment : Fragment() {
     private fun loadDashBoadApi() {
         lifecycleScope.launch {
             val request = RequestDashBoardDetails(
-                company_id = company_id, start_date = firstDay, end_date = currentDate
+                company_id = company_id, start_date = _binding!!.startDateTxt.text.toString(),
+                end_date = _binding!!.endDateTxt.text.toString()
 
             )
             dashboardViewModel.getDashBoardDetails(request)

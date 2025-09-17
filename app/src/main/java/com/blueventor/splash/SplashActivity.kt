@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import com.blueventor.BuildConfig
 import com.blueventor.R
+import com.blueventor.login.LoginActivity
 import com.blueventor.menu.MainActivity
 import com.blueventor.network.UiState
 import com.blueventor.network.request.RequestCheckCompanyDomain
@@ -37,16 +38,15 @@ class SplashActivity : AppCompatActivity() {
 
 
         val userId = sessionManager.getString("_id", "Not Found")
-        println("userId" + " "+userId)
+
         if (userId != "Not Found" && userId.isNotEmpty()) {
             lifecycleScope.launch {
-                delay(3000)
+                delay(1000)
                 startNewActivity<MainActivity>()
                 finish()
             }
         } else {
-            println("userId_new" + " "+"klamklzcm")
-            println("userId_new" + " "+BuildConfig.BASE_URL)
+
 
             sessionManager.saveString("authkey", "")
             sessionManager.saveString("userAuth", "")
@@ -71,8 +71,8 @@ class SplashActivity : AppCompatActivity() {
                             if (response != null)
                             {
                                 lifecycleScope.launch {
-                                    delay(3000)
-                                    startNewActivity<MainActivity>()
+                                    delay(1000)
+                                    startNewActivity<LoginActivity>()
                                     finish()
                                 }
 

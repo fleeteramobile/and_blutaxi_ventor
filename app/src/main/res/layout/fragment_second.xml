@@ -15,13 +15,23 @@
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <ImageView
+        <androidx.cardview.widget.CardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/menu_bar"
+            android:layout_gravity="center"
 
-            android:layout_width="60dp"
+            app:cardElevation="4dp">
 
-            android:layout_height="80dp"
-            android:background="@drawable/menu_bar"
-            android:padding="4dp" />
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Back"
+                android:scaleType="centerInside"
+                android:src="@drawable/menu" />
+        </androidx.cardview.widget.CardView>
+
 
         <EditText
             android:id="@+id/etSearch"
@@ -32,15 +42,96 @@
             android:drawableLeft="@drawable/ic_search"
             android:drawablePadding="8dp"
             android:hint="Search"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:visibility="gone" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/start_date"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_edittext"
+                android:padding="10dp"
+
+
+                app:layout_constraintTop_toBottomOf="@id/tvDob"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/start_date_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/ivCalendar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/calendar"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/end_date"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_edittext"
+                android:padding="10dp"
+
+
+                app:layout_constraintTop_toBottomOf="@id/tvDob"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/end_date_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="14sp" />
+
+                <ImageView
+
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/calendar"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_go"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+             android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#EDAE10"
+                android:text="Go"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+
+
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scrollbars="none"
         android:layout_weight="1"
-        android:padding="12dp">
+        android:padding="12dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -191,6 +282,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/total_rides_lay"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -234,7 +326,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
-
+                    android:id="@+id/completed_lay"
                     android:orientation="vertical"
                     app:cardBackgroundColor="@color/white">
 
@@ -486,10 +578,10 @@
 
                     <!-- Button -->
                     <Button
+                        android:id="@+id/net_earnings"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:id="@+id/net_earnings"
                         android:backgroundTint="#EDAE10"
                         android:text="Net Earning"
                         android:textColor="@color/white" />
@@ -565,19 +657,29 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerViewDrivers"
                         android:layout_width="match_parent"
-                        android:background="@color/white"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:background="@color/white"
                         android:orientation="horizontal"
-                        android:padding="8dp"/>
-
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No trips avaliable"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+android:id="@+id/notrips"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
                     <Button
+                        android:id="@+id/cab_performance"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
                         android:backgroundTint="#EDAE10"
                         android:text="View all"
-                        android:id="@+id/cab_performance"
                         android:textColor="@android:color/white"
                         android:textSize="16sp" />
 

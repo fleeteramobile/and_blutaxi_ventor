@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.blueventor.R
@@ -23,6 +24,7 @@ class TripListAdapter(val showTripDetails: ShowTripDetails, private val driverLi
         val tvPickup: TextView = itemView.findViewById(R.id.tvPickup)
         val tvDrop: TextView = itemView.findViewById(R.id.tvDrop)
         val tvPrice: TextView = itemView.findViewById(R.id.tvPrice)
+        val lay_trip_list: CardView = itemView.findViewById(R.id.lay_trip_list)
 
     }
 
@@ -45,6 +47,9 @@ class TripListAdapter(val showTripDetails: ShowTripDetails, private val driverLi
         holder.tvPickup.text = "${driver.drop_location}"
         holder.tvDrop.text = "${driver.drop_location.toString()}"
         holder.tvPrice.text = "₹ ${driver.amt.toString()}"
+        holder.lay_trip_list.setOnClickListener {
+            showTripDetails.showTripDetails(driver)
+        }
 
 
     }
