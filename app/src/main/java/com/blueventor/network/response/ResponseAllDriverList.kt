@@ -1,22 +1,17 @@
-package com.blueventor.network.response
-
-
-data class ResponseDriverDetails(
-    val data: List<Data>,  // <-- change to List<Data>
+data class ResponseAllDriverList(
+    val `data`: List<Data>,
     val message: String,
     val status: Int
 ) {
     data class Data(
         val account_balance: String,
         val address: String,
-        val booking_limit: Int,
-        val cancel_trips_count: String,
+        val booking_limit: String,
         val city_name: String,
         val company_address: String,
-        val company_id: Int,
+        val company_id: String,
         val company_name: String,
-        val company_userid: Int,
-        val completed_trips_count: String,
+        val company_userid: String,
         val country_code: String,
         val country_name: String,
         val current_trip: List<Any>,
@@ -32,22 +27,22 @@ data class ResponseDriverDetails(
         val driver_type: String,
         val email: String,
         val gender: String,
-        val id: Int,
+        val id: String,
         val lastname: String,
         val login_status: String,
         val mapping_enddate: String,
         val mapping_startdate: String,
-        val max_luggage: Int,
-        val model_id: Int,
+        val max_luggage: String?,            // Changed from Double → String?
+        val model_id: String,
         val model_name: String,
         val name: String,
-        val oustation_availability: Int,
+        val oustation_availability: String,
         val phone: String,
         val profile_picture: String,
-        val recharge_limit: Int,
-        val rental_availability: Int,
+        val recharge_limit: String,
+        val rental_availability: String,
         val shift_status: String,
-        val signup_status: Int,
+        val signup_status: String,
         val state_name: String,
         val status: String,
         val taxi_colour: String,
@@ -57,12 +52,11 @@ data class ResponseDriverDetails(
         val taxi_insurance_number: String,
         val taxi_manufacturer: String,
         val taxi_manufacturing_year: String,
-        val taxi_min_speed: String,
+        val taxi_min_speed: String?,         // Changed from Double → String?
         val taxi_motor_expire_date: String,
         val taxi_no: String,
         val taxi_owner_name: String,
         val taxi_permit_expiry_date: String,
-        val total_trips_count: String,
         val user_type: String,
         val vehicle_registration_license: String
     )

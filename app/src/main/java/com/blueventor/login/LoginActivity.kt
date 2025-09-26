@@ -17,6 +17,7 @@ import com.blueventor.network.request.Requestloginaccess
 import com.blueventor.network.response.RespondeLoginAccess
 import com.blueventor.session.SessionManager
 import com.blueventor.util.logDebugMessage
+import com.blueventor.util.setOnclick
 import com.blueventor.util.showAlert
 import com.blueventor.util.startNewActivity
 import com.blueventor.viewmodel.CheckCompanyDomainViewModel
@@ -24,9 +25,11 @@ import com.blueventor.viewmodel.VendorLoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     val vendorLoginViewModel: VendorLoginViewModel by viewModels()
+
     @Inject
     lateinit var sessionManager: SessionManager
 
@@ -37,13 +40,16 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sessionManager.saveString("userAuth", "")
-        binding!!.btnLogin.setOnClickListener {
+
+
+
+        setOnclick(binding.btnLogin) {
             val email = binding.etEmailPhone.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
             if (email.equals("")) {
-             showAlert("Enter the valid mobile number")
+                showAlert("Enter the valid mobile number")
             } else if (password.equals("")) {
-             showAlert("Enter the valid password")
+                showAlert("Enter the valid password")
             } else {
 
                 lifecycleScope.launch {
@@ -57,9 +63,13 @@ class LoginActivity : AppCompatActivity() {
                     vendorLoginViewModel.getVendorLoginAccess(request)
                 }
             }
-
-
         }
+//
+//        binding!!.btnLogin.setOnClickListener {
+//
+//
+//
+//        }
 
 
         calLoginAPi()
@@ -70,7 +80,8 @@ class LoginActivity : AppCompatActivity() {
 
         if (userId != "Not Found" && userId.isNotEmpty()) {
             startNewActivity<MainActivity>()
-            finish()        }
+            finish()
+        }
         lifecycleScope.launch {
             vendorLoginViewModel.uiState.collect { state ->
                 when (state) {
@@ -78,23 +89,31 @@ class LoginActivity : AppCompatActivity() {
                     is UiState.Success<*> -> {
                         val response = state.data as RespondeLoginAccess
                         if (response != null) {
-                            logDebugMessage("user_id_testing",response.detail.id.toString())
+                            logDebugMessage("user_id_testing", response.detail.id.toString())
                             showAlert(response.message)
 
-                            if (response.user_key!=null)
-                            {
+                            if (response.user_key != null) {
 
-                                sessionManager.saveString("userAuth",response.user_key)
+                                sessionManager.saveString("userAuth", response.user_key)
 
                             }
-                            sessionManager.saveString("userAuth",response.user_key)
-                            sessionManager.saveString("username",response.detail.name)
-                            sessionManager.saveString("_id",response.detail.id.toString())
-                            sessionManager.saveString("company_id",response.detail.company_id.toString())
-                            sessionManager.saveString("email",response.detail.email)
-                            sessionManager.saveString("phone",response.detail.phone)
-                            sessionManager.saveString("company_name",response.detail.company_info.company_name)
-                            sessionManager.saveString("company_address",response.detail.company_info.company_address)
+                            sessionManager.saveString("userAuth", response.user_key)
+                            sessionManager.saveString("username", response.detail.name)
+                            sessionManager.saveString("_id", response.detail.id.toString())
+                            sessionManager.saveString(
+                                "company_id",
+                                response.detail.company_id.toString()
+                            )
+                            sessionManager.saveString("email", response.detail.email)
+                            sessionManager.saveString("phone", response.detail.phone)
+                            sessionManager.saveString(
+                                "company_name",
+                                response.detail.company_info.company_name
+                            )
+                            sessionManager.saveString(
+                                "company_address",
+                                response.detail.company_info.company_address
+                            )
                             startNewActivity<MainActivity>()
                             finish()
 
@@ -102,12 +121,19 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     is UiState.Error -> {
-                      showAlert(state.message )
+                        showAlert(state.message)
                     }
+
                     is UiState.Idle -> {}
                     else -> {}
                 }
             }
         }
+    }
+
+
+    fun addValues(x: Int, y: Int, func: (Int, Int) -> Int): Int {
+        return func(x, y)
+
     }
 }

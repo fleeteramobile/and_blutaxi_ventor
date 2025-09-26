@@ -44,4 +44,13 @@
         android:id="@+id/tripDetailsFragment"
         android:name="com.blueventor.menu.tripdetails.TripDetailsFragment"
         android:label="TripDetailsFragment" />
+    <fragment
+        android:id="@+id/allDriversListFragment"
+        android:name="com.blueventor.menu.alldriverslist.AllDriversListFragment"
+        android:label="AllDriversListFragment" />
+    <fragment
+        android:id="@+id/driverPersonalInfoFragment"
+        android:name="com.blueventor.menu.driverdetailsdashboard.DriverPersonalInfoFragment"
+        android:label="fragment_driver_personal_info"
+        tools:layout="@layout/fragment_driver_personal_info" />
 </navigation>

@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_profile -> {
-                    navController.navigate(R.id.driverDetailsFragment)
+                    navController.navigate(R.id.allDriversListFragment)
                     // add your logout logic
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true

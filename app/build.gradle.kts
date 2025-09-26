@@ -39,10 +39,10 @@ android {
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://uatbluetaxi.fleetera.io/vendorapi201/index/\""
+                "\"https://devbluetaxi.fleetera.io/vendorapi201/index/\""
             )
-            buildConfigField("String", "API_KEY", "\"uatbluetaxi\"")
-            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"uatbluetaxi\"")
+            buildConfigField("String", "API_KEY", "\"devbluetaxi\"")
+            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"devbluetaxi\"")
             buildConfigField("String", "Flavors", "\"dev\"")
 
         }

@@ -21,6 +21,8 @@ import com.blueventor.network.response.ResponseCarPerformance
 import com.blueventor.network.response.ResponseDashBoardDetails
 import com.blueventor.session.SessionManager
 import com.blueventor.util.logDebugMessage
+import com.blueventor.util.setOnclick
+import com.blueventor.util.setOnclicks
 import com.blueventor.util.showAlert
 import com.blueventor.util.showDatePicker
 import com.blueventor.viewmodel.DashboardViewModel
@@ -82,10 +84,13 @@ class SecondFragment : Fragment() {
         _binding!!.endDateTxt.setOnClickListener {
             showDatePicker(_binding!!.startDateTxt)
         }
-        _binding!!.btnGo.setOnClickListener {
+
+        setOnclick(_binding!!.btnGo)
+        {
             loadDashBoadApi()
             loadCarpermancedetails()
         }
+
         _binding!!.netEarnings.setOnClickListener {
             findNavController().navigate(R.id.driverDetailsFragment)
         }

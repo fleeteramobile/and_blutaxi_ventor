@@ -1,9 +1,11 @@
 package com.blueventor.network
 
+import ResponseAllDriverList
 import com.blueventor.network.request.RequestCheckCompanyDomain
 import com.blueventor.network.request.RequestDashBoardCarPerformanceDetails
 import com.blueventor.network.request.RequestDashBoardDetails
 import com.blueventor.network.request.RequestDriverDetails
+import com.blueventor.network.request.RequestGetAllDriverList
 import com.blueventor.network.request.RequestTripDetails
 import com.blueventor.network.request.RequestTripList
 import com.blueventor.network.request.Requestloginaccess
@@ -53,4 +55,10 @@ interface ApiService {
     suspend fun getTripDetails(
         @Body requestTripDetails: RequestTripDetails
     ):ResponseTripDetails
+
+
+    @POST("=?type=company_driver_details")
+    suspend fun getAllDriverList(
+        @Body requestGetAllDriverList: RequestGetAllDriverList
+    ):ResponseAllDriverList
 }
