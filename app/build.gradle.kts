@@ -147,6 +147,7 @@ dependencies {
     implementation(libs.coroutines.core)
     implementation(libs.glide)
     kapt(libs.glide.compiler)
+    implementation(libs.razorpay)
 
 
 }

@@ -53,4 +53,8 @@
         android:name="com.blueventor.menu.driverdetailsdashboard.DriverPersonalInfoFragment"
         android:label="fragment_driver_personal_info"
         tools:layout="@layout/fragment_driver_personal_info" />
+    <fragment
+        android:id="@+id/driverRechargeFragment"
+        android:name="com.blueventor.DriverRechargeFragment"
+        android:label="DriverRechargeFragment" />
 </navigation>

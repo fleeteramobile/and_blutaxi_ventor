@@ -147,8 +147,9 @@ class DriverInfoFragment : Fragment() {
         }
 
         binding.documents.onclik {
-
-            findNavController().navigate(R.id.driverPersonalInfoFragment)
+//driverRechargeFragment
+            //driverPersonalInfoFragment
+            findNavController().navigate(R.id.driverRechargeFragment)
         }
     }
 }
