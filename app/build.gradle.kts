@@ -25,7 +25,7 @@ android {
                 "\"https://devbluetaxi.fleetera.io/vendorapi201/index/\""
             )
             buildConfigField("String", "API_KEY", "\"uatbluetaxi\"")
-            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"uatbluetaxi\"")
+            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"devbluetaxi\"")
             buildConfigField("String", "Flavors", "\"uat\"")
 
 
@@ -39,10 +39,10 @@ android {
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://devbluetaxi.fleetera.io/vendorapi201/index/\""
+                "\"https://uatbluetaxi.fleetera.io/vendorapi201/index/\""
             )
-            buildConfigField("String", "API_KEY", "\"devbluetaxi\"")
-            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"devbluetaxi\"")
+            buildConfigField("String", "API_KEY", "\"uatbluetaxi\"")
+            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"uatbluetaxi \"")
             buildConfigField("String", "Flavors", "\"dev\"")
 
         }
