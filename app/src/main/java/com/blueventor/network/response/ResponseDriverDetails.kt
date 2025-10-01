@@ -62,8 +62,10 @@ data class ResponseDriverDetails(
         val taxi_no: String,
         val taxi_owner_name: String,
         val taxi_permit_expiry_date: String,
+        val today_login_hours: String,
         val total_trips_count: String,
         val user_type: String,
+        val today_earnings: String,
         val vehicle_registration_license: String
     )
 }

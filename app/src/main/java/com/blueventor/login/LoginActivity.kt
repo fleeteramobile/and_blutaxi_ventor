@@ -20,8 +20,8 @@ import com.blueventor.util.logDebugMessage
 import com.blueventor.util.setOnclick
 import com.blueventor.util.showAlert
 import com.blueventor.util.startNewActivity
-import com.blueventor.viewmodel.CheckCompanyDomainViewModel
-import com.blueventor.viewmodel.VendorLoginViewModel
+import com.blueventor.network.viewmodel.CheckCompanyDomainViewModel
+import com.blueventor.network.viewmodel.VendorLoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject

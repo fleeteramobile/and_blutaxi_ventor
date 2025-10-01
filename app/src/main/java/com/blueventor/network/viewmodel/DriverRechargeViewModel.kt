@@ -1,0 +1,37 @@
+package com.blueventor.network.viewmodel
+
+import ResponseAllDriverList
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.blueventor.network.NetworkModule_ProvideBaseUrlFactory
+import com.blueventor.network.UiState
+import com.blueventor.network.request.RequestDriverDetails
+import com.blueventor.network.request.RequestGetAllDriverList
+
+import com.blueventor.network.repository.AllDriverRepository
+import com.blueventor.network.repository.DriverRechargeRepository
+import com.blueventor.network.request.RequestDriverRecharge
+import com.blueventor.network.response.ResponseDriverWalletRecharge
+import com.blueventor.util.logDebugMessage
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import java.lang.Thread.State
+import javax.inject.Inject
+@HiltViewModel
+class DriverRechargeViewModel @Inject constructor(val driverRechargeRepository: DriverRechargeRepository): ViewModel(){
+private val _uiState = MutableStateFlow<UiState<ResponseDriverWalletRecharge>>(UiState.Idle)
+val uiState: StateFlow<UiState<ResponseDriverWalletRecharge>> = _uiState
+
+    fun getDriverDetails(requestDriverRecharge: RequestDriverRecharge) {
+        logDebugMessage("state_result","1")
+
+        viewModelScope.launch {
+            _uiState.value = UiState.Loading
+            _uiState.value = driverRechargeRepository.addWalletAmount(requestDriverRecharge)
+        }
+
+
+    }
+}

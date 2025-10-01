@@ -21,8 +21,8 @@ import com.blueventor.network.response.ResponseCarPerformance
 import com.blueventor.network.response.ResponseTripList
 import com.blueventor.session.SessionManager
 import com.blueventor.util.showDatePicker
-import com.blueventor.viewmodel.DashboardViewModel
-import com.blueventor.viewmodel.TripListViewModel
+import com.blueventor.network.viewmodel.DashboardViewModel
+import com.blueventor.network.viewmodel.TripListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat

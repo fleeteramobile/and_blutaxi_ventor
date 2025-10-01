@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.blueventor.R
-import com.blueventor.menu.driverlist.ShowDriverDetails
+import com.blueventor.menu.driver.driverlist.ShowDriverDetails
 import com.blueventor.network.response.ResponseCarPerformance
 import com.blueventor.network.response.ResponseTripList
 

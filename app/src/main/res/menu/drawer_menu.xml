@@ -1,8 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:title="Home"
         android:name="com.blueventor.menu.dashboard.SecondFragment"
+        android:title="Home"
 
 
         />
@@ -11,25 +11,28 @@
         android:id="@+id/nav_profile"
         android:name="com.blueventor.menu.driverlist.DriverDetailsFragment"
 
-        android:title="Drivers List"
-     />
+        android:title="Drivers List" />
 
     <item
         android:id="@+id/nav_settings"
         android:name="com.blueventor.menu.cablist.CabsListFragment"
 
-        android:title="Cab List"
-        />
+        android:title="Cab List" />
 
     <item
         android:id="@+id/nav_trip"
-        android:title="Trip List"
         android:name="com.blueventor.menu.triplist.TripListFragment"
+        android:title="Trip List"
+
+        />
+
+    <item
+        android:id="@+id/nav_triptrack"
+        android:title="Track Driver Location"
 
         />
 
     <item
         android:id="@+id/nav_logout"
-        android:title="Logout"
-        />
+        android:title="Logout" />
 </menu>

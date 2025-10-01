@@ -25,8 +25,8 @@ import com.blueventor.util.setOnclick
 import com.blueventor.util.setOnclicks
 import com.blueventor.util.showAlert
 import com.blueventor.util.showDatePicker
-import com.blueventor.viewmodel.DashboardViewModel
-import com.blueventor.viewmodel.VendorLoginViewModel
+import com.blueventor.network.viewmodel.DashboardViewModel
+import com.blueventor.network.viewmodel.VendorLoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -34,9 +34,7 @@ import java.util.Calendar
 import java.util.Locale
 import javax.inject.Inject
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
+
 @AndroidEntryPoint
 class SecondFragment : Fragment() {
 

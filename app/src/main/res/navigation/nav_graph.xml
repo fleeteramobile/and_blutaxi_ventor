@@ -23,11 +23,11 @@
     </fragment>
     <fragment
         android:id="@+id/driverDetailsFragment"
-        android:name="com.blueventor.menu.driverlist.DriverDetailsFragment"
+        android:name="com.blueventor.menu.driver.driverlist.DriverDetailsFragment"
         android:label="DriverDetailsFragment" />
     <fragment
         android:id="@+id/driverInfoFragment"
-        android:name="com.blueventor.menu.driverdetails.DriverInfoFragment"
+        android:name="com.blueventor.menu.driver.driverdetails.SingleDriverDetailsFragment"
         android:label="fragment_driver_info"
         tools:layout="@layout/fragment_driver_info" />
     <fragment
@@ -46,15 +46,29 @@
         android:label="TripDetailsFragment" />
     <fragment
         android:id="@+id/allDriversListFragment"
-        android:name="com.blueventor.menu.alldriverslist.AllDriversListFragment"
+        android:name="com.blueventor.menu.driver.alldriverslist.AllDriversListFragment"
         android:label="AllDriversListFragment" />
     <fragment
         android:id="@+id/driverPersonalInfoFragment"
-        android:name="com.blueventor.menu.driverdetailsdashboard.DriverPersonalInfoFragment"
+        android:name="com.blueventor.menu.driver.driverdetailsdashboard.DriverProofInfoFragment"
         android:label="fragment_driver_personal_info"
         tools:layout="@layout/fragment_driver_personal_info" />
     <fragment
         android:id="@+id/driverRechargeFragment"
-        android:name="com.blueventor.DriverRechargeFragment"
+        android:name="com.blueventor.menu.driver.DriverRechargeFragment"
         android:label="DriverRechargeFragment" />
+    <fragment
+        android:id="@+id/driveDashBoardFragment"
+        android:name="com.blueventor.menu.driver.DriveDashBoardFragment"
+        android:label="DriveDashBoardFragment" />
+    <fragment
+        android:id="@+id/driverCurrentLocationFragment"
+        android:name="com.blueventor.menu.driverlocation.DriverCurrentLocationFragment"
+        android:label="fragment_driver_current_location"
+        tools:layout="@layout/fragment_driver_current_location" />
+    <fragment
+        android:id="@+id/cabDetailsFragment"
+        android:name="com.blueventor.menu.cablist.CabDetailsFragment"
+        android:label="fragment_cab_details"
+        tools:layout="@layout/fragment_cab_details" />
 </navigation>

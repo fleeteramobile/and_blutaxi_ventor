@@ -19,8 +19,8 @@ import com.blueventor.network.response.ResponseTripDetails
 import com.blueventor.network.response.ResponseTripList
 import com.blueventor.session.SessionManager
 import com.blueventor.util.logDebugMessage
-import com.blueventor.viewmodel.DashboardViewModel
-import com.blueventor.viewmodel.TripDetailsViewModel
+import com.blueventor.network.viewmodel.DashboardViewModel
+import com.blueventor.network.viewmodel.TripDetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject

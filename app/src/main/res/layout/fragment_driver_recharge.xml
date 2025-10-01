@@ -64,7 +64,6 @@
             android:layout_alignParentTop="true"
             android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/tool_bar_lay"
                 android:layout_width="match_parent"
 
                 android:layout_marginTop="20dp"
@@ -85,6 +84,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="1dp"
 
+                        android:id="@+id/back_press"
 
                         android:textSize="14sp" />
 
@@ -178,7 +178,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingLeft="10dp"
-                android:textColor="#979797"
+                android:textColor="#000000"
+                android:textSize="18dp"
                 android:text="₹" />
 
             <EditText
@@ -198,7 +199,16 @@
         </LinearLayout>
 
 
+        <TextView
+            android:id="@+id/driver_limit"
 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            android:textColor="#000000"
+            android:textSize="14dp"
+            android:text="₹" />
 
 
         <androidx.appcompat.widget.AppCompatButton

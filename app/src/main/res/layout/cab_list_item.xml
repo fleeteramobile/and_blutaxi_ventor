@@ -7,6 +7,7 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="6dp"
+    android:id="@+id/car_lay_main"
     android:foreground="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true">

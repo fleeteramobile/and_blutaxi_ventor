@@ -1,0 +1,51 @@
+package com.blueventor.network.response
+
+data class ResponseCarList(
+    val `data`: List<Data>,
+    val message: String,
+    val status: Int
+) {
+    data class Data(
+        val _id: Int,
+        val driver_id: Int,
+        val driver_lastname: String,
+        val driver_name: String,
+        val driver_phone: String,
+        val mapping_enddate: String,
+        val mapping_startdate: String,
+        val mapping_status: String,
+        val max_luggage: Int,
+        val taxi_city: Int,
+        val taxi_colour: String,
+        val taxi_company: Int,
+        val taxi_country: Int,
+        val taxi_fare_km: Int,
+        val taxi_fc_expiry_date: String,
+        val taxi_id: Int,
+        val taxi_image: String,
+        val taxi_insurance_expire_date_time: String,
+        val taxi_insurance_number: String,
+        val taxi_make: String,
+        val taxi_make_id: String,
+        val taxi_manufacturer: String,
+        val taxi_manufacturer_id: Int,
+        val taxi_manufacturing_year: String,
+        val taxi_min_speed: Int,
+        val taxi_model: String,
+        val taxi_motor_expire_date: String,
+        val taxi_no: String,
+        val taxi_owner_name: String,
+        val taxi_pco_licence_expire_date: String,
+        val taxi_permit_expiry_date: String,
+        val taxi_plate_number: String,
+        val taxi_plate_prefix_id: Int,
+        val taxi_sliderimage: Int,
+        val taxi_speed: Int,
+        val taxi_state: Int,
+        val taxi_state_id: Int,
+        val taxi_status: String,
+        val taxi_submodel: Int,
+        val taxi_submodelname: String,
+        val vehicle_registration_license: String
+    )
+}

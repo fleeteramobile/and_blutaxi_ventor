@@ -5,15 +5,20 @@ import com.blueventor.network.request.RequestCheckCompanyDomain
 import com.blueventor.network.request.RequestDashBoardCarPerformanceDetails
 import com.blueventor.network.request.RequestDashBoardDetails
 import com.blueventor.network.request.RequestDriverDetails
+import com.blueventor.network.request.RequestDriverRecharge
 import com.blueventor.network.request.RequestGetAllDriverList
+import com.blueventor.network.request.RequestGetDriverLocation
 import com.blueventor.network.request.RequestTripDetails
 import com.blueventor.network.request.RequestTripList
 import com.blueventor.network.request.Requestloginaccess
 import com.blueventor.network.response.RespondeLoginAccess
+import com.blueventor.network.response.ResponseCarList
 import com.blueventor.network.response.ResponseCarPerformance
 import com.blueventor.network.response.ResponseCheckCompanyDomain
 import com.blueventor.network.response.ResponseDashBoardDetails
 import com.blueventor.network.response.ResponseDriverDetails
+import com.blueventor.network.response.ResponseDriverWalletRecharge
+import com.blueventor.network.response.ResponseGetDriverLocation
 import com.blueventor.network.response.ResponseTripDetails
 import com.blueventor.network.response.ResponseTripList
 import retrofit2.http.Body
@@ -61,4 +66,20 @@ interface ApiService {
     suspend fun getAllDriverList(
         @Body requestGetAllDriverList: RequestGetAllDriverList
     ):ResponseAllDriverList
+
+    @POST("=?type=add_driver_wallet")
+    suspend fun addAmountDriverWallet(
+        @Body requestDriverRecharge: RequestDriverRecharge
+    ): ResponseDriverWalletRecharge
+
+
+    @POST("=?type=dispatcher_tracking")
+    suspend fun getDriverLocation(
+        @Body requestGetDriverLocation: RequestGetDriverLocation
+    ): ResponseGetDriverLocation
+
+    @POST("=?type=company_taxi_details")
+    suspend fun getCompanyWiseCarList(
+        @Body requestGetDriverLocation: RequestGetDriverLocation
+    ): ResponseCarList
 }

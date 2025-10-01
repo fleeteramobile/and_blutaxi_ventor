@@ -24,8 +24,8 @@ android {
                 "BASE_URL",
                 "\"https://devbluetaxi.fleetera.io/vendorapi201/index/\""
             )
-            buildConfigField("String", "API_KEY", "\"devbluetaxi\"")
-            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"devbluetaxi\"")
+            buildConfigField("String", "API_KEY", "\"uatbluetaxi\"")
+            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"uatbluetaxi\"")
             buildConfigField("String", "Flavors", "\"uat\"")
 
 
@@ -132,6 +132,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

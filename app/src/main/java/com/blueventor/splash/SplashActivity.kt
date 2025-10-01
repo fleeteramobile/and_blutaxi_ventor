@@ -14,7 +14,7 @@ import com.blueventor.network.UiState
 import com.blueventor.network.request.RequestCheckCompanyDomain
 import com.blueventor.session.SessionManager
 import com.blueventor.util.startNewActivity
-import com.blueventor.viewmodel.CheckCompanyDomainViewModel
+import com.blueventor.network.viewmodel.CheckCompanyDomainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.observeOn
