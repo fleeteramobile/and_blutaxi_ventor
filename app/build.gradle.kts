@@ -36,42 +36,44 @@ android {
             dimension = "environment"
             applicationIdSuffix = ".dev"
 
+//            buildConfigField(
+//                "String",
+//                "BASE_URL",
+//                "\"https://bluetaxiindia.com/vendorapi201/index/\""
+//            )
+//            buildConfigField("String", "API_KEY", "\"livebluetaxi\"")
+//            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"livebluetaxi \"")
+//            buildConfigField("String", "Flavors", "\"dev\"")
+
+//            buildConfigField(
+//                "String",
+//                "BASE_URL",
+//                "\"https://uatbluetaxi.fleetera.io/vendorapi201/index/\""
+//            )
+//            buildConfigField("String", "API_KEY", "\"uatbluetaxi\"")
+//            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"uatbluetaxi\"")
+//            buildConfigField("String", "Flavors", "\"dev\"")
+
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://uatbluetaxi.fleetera.io/vendorapi201/index/\""
+                "\"https://bluetaxiindia.com/vendorapi201/index/\""
             )
-            buildConfigField("String", "API_KEY", "\"uatbluetaxi\"")
-            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"uatbluetaxi \"")
+            buildConfigField("String", "API_KEY", "\"livebluetaxi\"")
+            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"livebluetaxi\"")
             buildConfigField("String", "Flavors", "\"dev\"")
-
         }
 
 
 
-        create("qatesting")
-        {
-            dimension = "environment"
-            applicationIdSuffix = ".qatesting"
 
-            buildConfigField(
-                "String",
-                "BASE_URL",
-                "\"https://testingbluetaxi.fleetera.io/vendorapi201/index/\""
-            )
-            buildConfigField("String", "API_KEY", "\"testingbluetaxi\"")
-            buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"testingbluetaxi\"")
-            buildConfigField("String", "Flavors", "\"testing\"")
-
-
-        }
         create("production")
         {
             dimension = "environment"
             buildConfigField(
                 "String",
                 "BASE_URL",
-                "\"https://https://bluetaxi.in//vendorapi201/index/\""
+                "\"https://bluetaxiindia.com//vendorapi201/index/\""
             )
             buildConfigField("String", "API_KEY", "\"bluetaxi\"")
             buildConfigField("String", "COMPANY_MAIN_DOMAIN", "\"bluetaxi\"")
@@ -149,6 +151,9 @@ dependencies {
     implementation(libs.glide)
     kapt(libs.glide.compiler)
     implementation(libs.razorpay)
+    implementation(libs.circleimageview)
+    implementation(libs.facebook.shimmer)
+
 
 
 }

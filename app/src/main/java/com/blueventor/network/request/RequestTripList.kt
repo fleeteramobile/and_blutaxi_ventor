@@ -7,6 +7,7 @@ data class RequestTripList(
     val end_date: String,
     val travel_status: String,
     val limit: String,
+    val driver_id: String,
     val offset: String,
     val search: String
 )

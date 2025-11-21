@@ -136,6 +136,20 @@ fun ImageView.loadImage(
                 onError?.invoke()
             }
         })
+
+
+    fun Context.formatTimeData(input: String): String {
+        return try {
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("dd-MM-yyyy hh:mm a", Locale.getDefault())
+
+            val date = inputFormat.parse(input)
+            outputFormat.format(date!!)
+        } catch (e: Exception) {
+            input   // return original if error
+        }
+    }
+
 }
 
 

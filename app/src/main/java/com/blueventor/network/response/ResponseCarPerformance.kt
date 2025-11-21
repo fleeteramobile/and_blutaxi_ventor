@@ -15,7 +15,8 @@ data class ResponseCarPerformance(
         val taxi_no: String,
         val driver_id: String,
         val total_amount: Double,
-        val driver_phone: Double,
+        val driver_phone: String,
+        val country_code: String,
         val trip_count: Int
     )
 }

@@ -58,7 +58,7 @@ class DriverDetailsFragment : Fragment(), ShowDriverDetails {
         calendar.set(Calendar.DAY_OF_MONTH, 1)
         firstDay = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
 
-        binding!!.startDateTxt.setText(firstDay)
+        binding!!.startDateTxt.setText(currentDate)
         binding!!.endDateTxt.setText(currentDate)
 
         binding!!.startDate.setOnClickListener {
@@ -93,6 +93,21 @@ class DriverDetailsFragment : Fragment(), ShowDriverDetails {
         lifecycleScope.launch {
             val request = RequestDashBoardCarPerformanceDetails(
                 company_id = company_id, start_date = binding!!.startDateTxt.text.toString(),
+                end_date =  binding!!.endDateTxt.text.toString(),
+                limit = "10",
+                offset = "0",
+                search = "",
+
+                )
+            dashboardViewModel.getDashBoardCarPerformanceDetails(request)
+        }
+    }
+
+    private fun loadCarpermancedetailsfirst() {
+        lifecycleScope.launch {
+            val request = RequestDashBoardCarPerformanceDetails(
+                company_id = company_id,
+                start_date = binding!!.endDateTxt.text.toString(),
                 end_date =  binding!!.endDateTxt.text.toString(),
                 limit = "10",
                 offset = "0",
@@ -153,7 +168,7 @@ class DriverDetailsFragment : Fragment(), ShowDriverDetails {
 
     override fun showDriverDetails(data: ResponseCarPerformance.Data) {
         sessionManager.saveString("driver_id",data.driver_id.toString())
-        findNavController().navigate(R.id.driverInfoFragment)
+        findNavController().navigate(R.id.driveDashBoardFragment)
     }
 
     override fun callDriver(responseData: ResponseCarPerformance.Data) {
@@ -164,9 +179,27 @@ class DriverDetailsFragment : Fragment(), ShowDriverDetails {
         startActivity(intent)
     }
 
+    override fun callMessage(responseData: ResponseCarPerformance.Data) {
+
+        val num = responseData.country_code+responseData.driver_phone // user phone from list
+        val uri = Uri.parse("https://wa.me/${num.replace("+", "")}")
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        intent.setPackage("com.whatsapp")
+
+        if (intent.resolveActivity(requireActivity().packageManager) != null) {
+            requireActivity().startActivity(intent)
+        } else {
+            requireActivity().startActivity(Intent(Intent.ACTION_VIEW, uri))
+
+        }
+    }
+
+
+
+
     override fun onResume() {
         super.onResume()
-        loadCarpermancedetails()
+        loadCarpermancedetailsfirst()
         getCarPerformanceDetails()
     }
 

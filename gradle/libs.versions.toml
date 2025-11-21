@@ -24,7 +24,8 @@ glide-transformations = "4.3.0"
 navigationFragmentKtx = "2.9.3"
 navigationUiKtx = "2.9.3"
 playServicesLocation = "21.3.0"
-
+circleimageview = "3.1.0"
+shimmer = "0.5.0"
 
 
 [libraries]
@@ -36,9 +37,11 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+circleimageview = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleimageview" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 glide-transformations = { module = "jp.wasabeef:glide-transformations", version.ref = "glide-transformations" }
+facebook-shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
 
 
 #viewmodel

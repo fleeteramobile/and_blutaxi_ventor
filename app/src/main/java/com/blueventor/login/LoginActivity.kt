@@ -1,6 +1,9 @@
 package com.blueventor.login
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.InputType
+import android.view.MotionEvent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -32,9 +35,11 @@ class LoginActivity : AppCompatActivity() {
 
     @Inject
     lateinit var sessionManager: SessionManager
+    var isPasswordVisible = false
 
     private lateinit var binding: ActivityLoginBinding
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -43,8 +48,9 @@ class LoginActivity : AppCompatActivity() {
 
 
 
+
         setOnclick(binding.btnLogin) {
-            val email = binding.etEmailPhone.text.toString().trim()
+            val email = binding.etPhone.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
             if (email.equals("")) {
                 showAlert("Enter the valid mobile number")

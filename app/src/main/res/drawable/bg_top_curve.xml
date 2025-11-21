@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Main green background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#0E4F44"/> <!-- dark green -->
+        </shape>
+    </item>
+
+    <!-- Yellow curve -->
+    <item android:top="120dp">
+        <shape android:shape="oval">
+            <size android:width="500dp" android:height="500dp"/>
+            <solid android:color="#F3C623"/> <!-- yellow -->
+        </shape>
+    </item>
+
+</layer-list>

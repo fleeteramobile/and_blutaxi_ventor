@@ -1,96 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_color"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center_horizontal"
-    android:background="@android:color/white">
-    <LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <!-- ▓▓ TOP 50% ▓▓ -->
+    <RelativeLayout
+        android:id="@+id/topSection"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@android:color/white"
-        tools:ignore="MissingConstraints">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/login_bg_blue_rounded"
+        >
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_gravity="center"
+            android:layout_centerInParent="true"
             android:src="@drawable/login_logo"/>
-        <TextView
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vendor Login"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginBottom="30dp" />
+        <!-- Logo -->
 
-        <!-- Email / Phone Field -->
-        <EditText
-            android:id="@+id/etEmailPhone"
+
+
+    </RelativeLayout>
+
+
+    <!-- ▓▓ BOTTOM 50% ▓▓ -->
+    <LinearLayout
+        android:id="@+id/bottomSection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@drawable/login_bg_blue_rounded_top">
+
+        <!-- Email -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
-            android:background="@drawable/edittext_background"
-            android:padding="12dp"
-            android:textColor="@color/black"
+            android:orientation="vertical"
+            android:padding="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@android:color/white"
+            tools:ignore="MissingConstraints">
+            <TextView
 
-            android:inputType="number"
-            android:drawablePadding="10dp" />
-
-        <!-- Email Error -->
-
-
-        <!-- Password Field -->
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Your Password"
-            android:background="@drawable/edittext_background"
-            android:padding="12dp"
-            android:textColor="@color/black"
-
-            android:layout_marginTop="10dp"
-            android:inputType="textPassword"
-            />
-
-        <!-- Password Error -->
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vendor Login"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="30dp" />
 
 
-        <!-- Forget Password -->
-        <TextView
-            android:id="@+id/tvForgetPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forget password?"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="13sp"
-            android:layout_gravity="end"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="20dp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile number"
+                style="@style/InputLayoutOuterbox"
+                android:padding="5dp">
 
-        <!-- Login Button -->
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Log in"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#0055FF"
-            android:padding="12dp"
-            android:textStyle="bold" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhone"
+                    style="@style/ProfileEditText"
+                    android:layout_width="match_parent"
+                    android:inputType="number"
+                    android:textColorHint="#707894"
+                    android:textColor="@color/black"
+                    android:backgroundTint="#707894"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#bcbcbc"
+
+                />
+
+            <!-- Email / Phone Field -->
+
+            <!-- Email Error -->
+
+
+            <!-- Password Field -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                app:passwordToggleEnabled="true"
+                style="@style/InputLayoutOuterbox"
+                android:padding="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    style="@style/ProfileEditText"
+                    android:layout_width="match_parent"
+                    android:textColorHint="#707894"
+                    android:imeOptions="actionGo"
+android:textColor="@color/black"
+
+                    android:backgroundTint="#707894"
+                    android:inputType="textPassword"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#bcbcbc"
+
+                />
+
+
+
+            <!-- Password Error -->
+
+
+            <!-- Forget Password -->
+            <TextView
+                android:id="@+id/tvForgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forget password?"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="13sp"
+                android:visibility="gone"
+                android:layout_gravity="end"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Log in"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#0055FF"
+                android:padding="12dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
-    <!-- Title -->
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

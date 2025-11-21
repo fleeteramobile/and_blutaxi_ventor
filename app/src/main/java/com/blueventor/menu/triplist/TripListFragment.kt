@@ -156,7 +156,7 @@ class TripListFragment : Fragment(), ShowTripDetails {
                 limit = "",
                 offset = "",
                 search = "",
-
+                driver_id= ""
                 )
             tripListViewModel.getDriverDetails(request)
         }

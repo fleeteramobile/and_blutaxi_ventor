@@ -45,6 +45,7 @@ class DriverRechargeFragment : Fragment(), PaymentResultListener {
     lateinit var sessionManager: SessionManager
     private val binding get() = _binding!!
     var driver_id = ""
+    var driver_name = ""
     var company_id = ""
     var currentDate = ""
     var firstDay = ""
@@ -55,13 +56,14 @@ class DriverRechargeFragment : Fragment(), PaymentResultListener {
         super.onCreate(savedInstanceState)
         company_id = sessionManager.getString("company_id", "Not Found")
         driver_id = sessionManager.getString("driver_id", "Not Found")
+        driver_name = sessionManager.getString("driver_name", "Not Found")
         val calendar = Calendar.getInstance()
 
 
         currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
         calendar.set(Calendar.DAY_OF_MONTH, 1)
         firstDay = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
-
+        println("driver_name" + driver_name)
     }
 
     override fun onCreateView(
@@ -76,25 +78,39 @@ class DriverRechargeFragment : Fragment(), PaymentResultListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.backPress.onclik {
+        binding.backBtn.onclik {
             requireActivity().onBackPressed()
         }
+        _binding.tvRechargePerson.setText("Recharge wallet to ${driver_name}")
 
-        setOnclick(_binding.addmoneyBut)
+        setOnclick(_binding.saveButton)
         {
-            val enteredAmount = _binding.addmoneyEdt.text.toString().toDoubleOrNull() ?: 0.0
+            val enteredAmount = _binding.amountInput.text.toString().toDoubleOrNull() ?: 0.0
 
-
-            val totalAmount = accountBalance + enteredAmount
-
-            if (totalAmount > rechargeLimit) {
-                requireActivity().showAlert("Recharge not allowed! Max limit is $rechargeLimit (Available balance: $accountBalance)")
-                // Not allowed
-
+// Block if entered amount is below recharge limit
+            if (enteredAmount < rechargeLimit) {
+                requireActivity().showAlert(
+                    "Recharge not allowed! Minimum recharge amount is ₹$rechargeLimit"
+                )
             } else {
                 // Allowed → Start payment
                 startPayment()
             }
+
+
+//            val enteredAmount = _binding.addmoneyEdt.text.toString().toDoubleOrNull() ?: 0.0
+//
+//
+//            val totalAmount = accountBalance + enteredAmount
+//
+//            if (totalAmount > rechargeLimit) {
+//                requireActivity().showAlert("Recharge not allowed! Max limit is $rechargeLimit (Available balance: $accountBalance)")
+//                // Not allowed
+//
+//            } else {
+//                // Allowed → Start payment
+//                startPayment()
+//            }
         }
         loadDriverDetaislAPI()
         getDrierDetailsDetails()
@@ -114,15 +130,15 @@ class DriverRechargeFragment : Fragment(), PaymentResultListener {
 
     private fun startPayment() {
 
-        sessionManager.saveString("recharge_amount", _binding.addmoneyEdt.text.toString())
+        sessionManager.saveString("recharge_amount", _binding.amountInput.text.toString())
         val checkout = Checkout()
-        checkout.setKeyID("rzp_test_E9tlWpCq61sn6x") // 🔑 Replace with your Razorpay Key
-        val enteredAmount = _binding.addmoneyEdt.text.toString().toDoubleOrNull() ?: 0.0
+        checkout.setKeyID("rzp_live_PpSSZ0wRqw7wtG") // 🔑 Replace with your Razorpay Key
+        val enteredAmount = _binding.amountInput.text.toString().toDoubleOrNull() ?: 0.0
 
         try {
             val options = JSONObject()
             options.put("name", "Blue Taxi")
-            options.put("description", "Booking Payment")
+            options.put("description", "driver Recharge")
             options.put("currency", "INR")
             options.put("amount", (enteredAmount * 100).toInt()) // amount in paise (₹500)
 
@@ -162,10 +178,10 @@ class DriverRechargeFragment : Fragment(), PaymentResultListener {
                         val response = cardetails.data as ResponseDriverDetails
                         if (response != null) {
 
-                            _binding!!.walletbalTxt.setText("₹ ${response.data.get(0).account_balance}")
+                            _binding!!.titleText.setText("₹ ${response.data.get(0).account_balance}")
                             response.data.get(0).account_balance
-                            _binding.driverLimit.setText(
-                                "Driver maximum recharge limit ${
+                            _binding.bankName.setText(
+                                "Driver minimum recharge amount is ₹ ${
                                     response.data.get(
                                         0
                                     ).recharge_limit

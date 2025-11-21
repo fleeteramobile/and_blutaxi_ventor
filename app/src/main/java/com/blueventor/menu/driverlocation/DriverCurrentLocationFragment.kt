@@ -3,6 +3,8 @@ package com.blueventor.menu.driverlocation
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.location.Location
 import android.os.Bundle
 import android.os.Looper
@@ -13,7 +15,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.DrawableRes
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.blueventor.R
@@ -40,6 +44,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
@@ -209,23 +214,23 @@ class DriverCurrentLocationFragment : Fragment(), OnMapReadyCallback {
             val lng = driver.loc.coordinates[0]
             val driverLatLng = LatLng(lat, lng)
 
-            // Marker color based on status
-            val markerColor = when (driver.driver_status) {
-                "F" -> BitmapDescriptorFactory.HUE_GREEN
-                "B" -> BitmapDescriptorFactory.HUE_BLUE
-                "A" -> BitmapDescriptorFactory.HUE_RED
-                else -> BitmapDescriptorFactory.HUE_ORANGE
+            val markerIcon = when (driver.driver_status) {
+                "F" -> getBitmapDescriptorFromDrawable(R.drawable.free)    // Green car
+                "B" -> getBitmapDescriptorFromDrawable(R.drawable.busy)    // Blue car
+                "A" -> getBitmapDescriptorFromDrawable(R.drawable.active)  // Red car
+                else -> getBitmapDescriptorFromDrawable(R.drawable.busy)
             }
 
-            // Add marker and attach driver object
             val marker = googleMap.addMarker(
                 MarkerOptions()
                     .position(driverLatLng)
-                    .icon(BitmapDescriptorFactory.defaultMarker(markerColor))
+                    .icon(markerIcon)   // <-- USE IT DIRECTLY
             )
+
             marker?.tag = driver
             marker?.let { driverMarkers.add(it) }
         }
+
 
         // Show all markers within camera
         if (drivers.isNotEmpty()) {
@@ -249,10 +254,33 @@ class DriverCurrentLocationFragment : Fragment(), OnMapReadyCallback {
                     view.findViewById<TextView>(R.id.tvMobile).text = "Mobile: ${it.country_code}${it.driver_mobile}"
                     view.findViewById<TextView>(R.id.tvTaxiNo).text = "Taxi No: ${it.taxi_no}"
                     view.findViewById<TextView>(R.id.tvTaxiModel).text = "Taxi Model: ${it.taxi_model}"
+                    if (it.trip_type.equals(""))
+                    {
+                        view.findViewById<TextView>(R.id.trip_type).visibility = View.GONE
+
+                    }
+                    else{
+                        view.findViewById<TextView>(R.id.trip_type).visibility = View.VISIBLE
+                        view.findViewById<TextView>(R.id.trip_type).text = "Trip Type: ${it.trip_type}"
+
+                    }
                 }
                 return view
             }
         })
+    }
+
+    private fun getBitmapDescriptorFromDrawable(@DrawableRes drawableId: Int): BitmapDescriptor {
+        val drawable = ContextCompat.getDrawable(requireActivity(), drawableId)!!
+        val bitmap = Bitmap.createBitmap(
+            drawable.intrinsicWidth,
+            drawable.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+        return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
 
 

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootlay"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/back_lay"
+                android:layout_height="400dp"
+                android:orientation="vertical"
+                android:background="@drawable/background"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                  >
+
+                    <ImageView
+                        android:id="@+id/back_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:layout_gravity="left"
+
+                        android:src="@drawable/ic_back_icon"
+                        android:background="@drawable/round_white_bg"
+                        android:elevation="6dp"
+                        android:layout_margin="12dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+
+                    android:orientation="horizontal"
+                  >
+
+
+                    <ImageView
+                        android:id="@+id/btnPrevYear"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+android:layout_alignParentLeft="true"
+android:layout_centerVertical="true"
+                        android:src="@drawable/ic_back_icon"
+
+                        android:elevation="6dp"
+                    />
+
+
+
+                    <TextView
+                        android:id="@+id/txtYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2024"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+
+                        android:paddingHorizontal="20dp"/>
+
+                    <ImageView
+                        android:id="@+id/btnNextYear"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+android:layout_centerVertical="true"
+android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_arrow_right"
+
+                        android:elevation="6dp"
+                        />
+
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/monthRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+               android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal" />
+
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal"
+                  >
+
+                    <!-- Left: Today's Deal -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTodaysDeal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:foreground="?attr/selectableItemBackground"
+                        card_view:cardCornerRadius="18dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:cardElevation="4dp"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="12dp"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bg_today_deal">
+
+                            <!-- Icon circle -->
+
+                            <!-- Texts -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/txtTodayTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total login time"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/white" />
+
+                                <TextView
+                                    android:id="@+id/total_login_time"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:textSize="11sp"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Right: Limited Offer -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardLimitedOffer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:foreground="?attr/selectableItemBackground"
+                        card_view:cardCornerRadius="18dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:cardElevation="4dp"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="12dp"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bg_limited_offer">
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/txtLimitedTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Average Login time"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/white" />
+
+                                <TextView
+                                    android:id="@+id/average_login_time"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:textSize="11sp"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="-3dp"
+                android:orientation="vertical"
+                android:layout_marginTop="290dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:orientation="vertical">
+
+                    <androidx.core.widget.NestedScrollView
+                        android:id="@+id/nested_scrollview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/bottom_lay"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/border"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingTop="10dp">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+
+                                        android:gravity="center_vertical">
+
+
+                                        <LinearLayout
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center_vertical"
+                                            android:orientation="vertical"
+                                            android:padding="10dp">
+
+
+                                            <androidx.recyclerview.widget.RecyclerView
+                                                android:id="@+id/recycler_attance_details"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="horizontal"
+                                                android:padding="12dp" />
+
+                                        </LinearLayout>
+
+
+                                    </RelativeLayout>
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </androidx.core.widget.NestedScrollView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

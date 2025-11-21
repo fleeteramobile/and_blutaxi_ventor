@@ -4,8 +4,10 @@ import ResponseAllDriverList
 import com.blueventor.network.request.RequestCheckCompanyDomain
 import com.blueventor.network.request.RequestDashBoardCarPerformanceDetails
 import com.blueventor.network.request.RequestDashBoardDetails
+import com.blueventor.network.request.RequestDriverAttendanceDetails
 import com.blueventor.network.request.RequestDriverDetails
 import com.blueventor.network.request.RequestDriverRecharge
+import com.blueventor.network.request.RequestDriverRechargeLogs
 import com.blueventor.network.request.RequestGetAllDriverList
 import com.blueventor.network.request.RequestGetDriverLocation
 import com.blueventor.network.request.RequestTripDetails
@@ -16,7 +18,9 @@ import com.blueventor.network.response.ResponseCarList
 import com.blueventor.network.response.ResponseCarPerformance
 import com.blueventor.network.response.ResponseCheckCompanyDomain
 import com.blueventor.network.response.ResponseDashBoardDetails
+import com.blueventor.network.response.ResponseDriverAttendanceDetails
 import com.blueventor.network.response.ResponseDriverDetails
+import com.blueventor.network.response.ResponseDriverWalletLogs
 import com.blueventor.network.response.ResponseDriverWalletRecharge
 import com.blueventor.network.response.ResponseGetDriverLocation
 import com.blueventor.network.response.ResponseTripDetails
@@ -82,4 +86,13 @@ interface ApiService {
     suspend fun getCompanyWiseCarList(
         @Body requestGetDriverLocation: RequestGetDriverLocation
     ): ResponseCarList
+
+    @POST("=?type=driver_wallet_recharge_logs")
+    suspend fun getDriverChargeLogs(
+        @Body requestDriverRechargeLogs: RequestDriverRechargeLogs
+    ): ResponseDriverWalletLogs
+    @POST("=?type=driver_loginhours_details")
+    suspend fun getDriverLoginHours(
+        @Body requestDriverAttendanceDetails: RequestDriverAttendanceDetails
+    ): ResponseDriverAttendanceDetails
 }

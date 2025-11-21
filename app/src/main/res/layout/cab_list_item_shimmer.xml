@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="              "
+                    android:textSize="12sp"
+                    android:background="@drawable/shimmer_bg"
+                    android:textColor="@color/gray" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvType"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="12dp"
+                    android:text="                                                "
+                    android:textStyle="bold"
+                    android:background="@drawable/shimmer_bg"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+                <!-- Car Number Plate -->
+                <TextView
+
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCarName"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shimmer_bg"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text=" "
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- Top left: Type -->
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
+            <!-- Top right: Rating -->
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/shimmer_bg_round"
+                    tools:ignore="UseAppTint" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    tools:ignore="UseAppTint"
+                    android:src="@drawable/shimmer_bg_round"
+                 />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    tools:ignore="UseAppTint"
+                    android:src="@drawable/shimmer_bg_round" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    tools:ignore="UseAppTint"
+                    android:src="@drawable/shimmer_bg_round" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    tools:ignore="UseAppTint"
+                    android:src="@drawable/shimmer_bg_round" />
+            </LinearLayout>
+
+            <ImageView
+
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+
+                android:layout_marginTop="8dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/shimmer_bg_round" />
+            </LinearLayout>
+            <!-- Car Image (Right side) -->
+
+            <!-- Car Name -->
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="              "
+                    android:textSize="12sp"
+                    android:background="@drawable/shimmer_bg"
+                    android:textColor="@color/gray" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvType"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="12dp"
+                    android:text="                                                "
+                    android:textStyle="bold"
+                    android:background="@drawable/shimmer_bg"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+                <!-- Car Number Plate -->
+                <TextView
+
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCarName"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shimmer_bg"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text=" "
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- Top left: Type -->
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
+                <!-- Top right: Rating -->
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/shimmer_bg_round"
+                        tools:ignore="UseAppTint" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round"
+                        />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+                </LinearLayout>
+
+                <ImageView
+
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/shimmer_bg_round" />
+            </LinearLayout>
+            <!-- Car Image (Right side) -->
+
+            <!-- Car Name -->
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="              "
+                    android:textSize="12sp"
+                    android:background="@drawable/shimmer_bg"
+                    android:textColor="@color/gray" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvType"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="12dp"
+                    android:text="                                                "
+                    android:textStyle="bold"
+                    android:background="@drawable/shimmer_bg"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+                <!-- Car Number Plate -->
+                <TextView
+
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCarName"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shimmer_bg"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text=" "
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- Top left: Type -->
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
+                <!-- Top right: Rating -->
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/shimmer_bg_round"
+                        tools:ignore="UseAppTint" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round"
+                        />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+                </LinearLayout>
+
+                <ImageView
+
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/shimmer_bg_round" />
+            </LinearLayout>
+            <!-- Car Image (Right side) -->
+
+            <!-- Car Name -->
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="              "
+                    android:textSize="12sp"
+                    android:background="@drawable/shimmer_bg"
+                    android:textColor="@color/gray" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvType"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="12dp"
+                    android:text="                                                "
+                    android:textStyle="bold"
+                    android:background="@drawable/shimmer_bg"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+                <!-- Car Number Plate -->
+                <TextView
+
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCarName"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shimmer_bg"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text=" "
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- Top left: Type -->
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
+                <!-- Top right: Rating -->
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/shimmer_bg_round"
+                        tools:ignore="UseAppTint" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round"
+                        />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+                </LinearLayout>
+
+                <ImageView
+
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/shimmer_bg_round" />
+            </LinearLayout>
+            <!-- Car Image (Right side) -->
+
+            <!-- Car Name -->
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="              "
+                    android:textSize="12sp"
+                    android:background="@drawable/shimmer_bg"
+                    android:textColor="@color/gray" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvType"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="12dp"
+                    android:text="                                                "
+                    android:textStyle="bold"
+                    android:background="@drawable/shimmer_bg"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+                <!-- Car Number Plate -->
+                <TextView
+
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCarName"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shimmer_bg"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text=" "
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- Top left: Type -->
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
+                <!-- Top right: Rating -->
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/shimmer_bg_round"
+                        tools:ignore="UseAppTint" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round"
+                        />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+                </LinearLayout>
+
+                <ImageView
+
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/shimmer_bg_round" />
+            </LinearLayout>
+            <!-- Car Image (Right side) -->
+
+            <!-- Car Name -->
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="              "
+                    android:textSize="12sp"
+                    android:background="@drawable/shimmer_bg"
+                    android:textColor="@color/gray" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvType"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="12dp"
+                    android:text="                                                "
+                    android:textStyle="bold"
+                    android:background="@drawable/shimmer_bg"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+                <!-- Car Number Plate -->
+                <TextView
+
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCarName"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shimmer_bg"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text=" "
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- Top left: Type -->
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
+                <!-- Top right: Rating -->
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/shimmer_bg_round"
+                        tools:ignore="UseAppTint" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round"
+                        />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+                </LinearLayout>
+
+                <ImageView
+
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/shimmer_bg_round" />
+            </LinearLayout>
+            <!-- Car Image (Right side) -->
+
+            <!-- Car Name -->
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="              "
+                    android:textSize="12sp"
+                    android:background="@drawable/shimmer_bg"
+                    android:textColor="@color/gray" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvType"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="12dp"
+                    android:text="                                                "
+                    android:textStyle="bold"
+                    android:background="@drawable/shimmer_bg"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+                <!-- Car Number Plate -->
+                <TextView
+
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCarName"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shimmer_bg"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text=" "
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- Top left: Type -->
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="vertical">
+                <!-- Top right: Rating -->
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/shimmer_bg_round"
+                        tools:ignore="UseAppTint" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round"
+                        />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        tools:ignore="UseAppTint"
+                        android:src="@drawable/shimmer_bg_round" />
+                </LinearLayout>
+
+                <ImageView
+
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/shimmer_bg_round" />
+            </LinearLayout>
+            <!-- Car Image (Right side) -->
+
+            <!-- Car Name -->
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

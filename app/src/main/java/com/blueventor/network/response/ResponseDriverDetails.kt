@@ -47,6 +47,7 @@ data class ResponseDriverDetails(
         val recharge_limit: Int,
         val rental_availability: Int,
         val shift_status: String,
+        val last_location_updated: String,
         val signup_status: Int,
         val state_name: String,
         val status: String,
@@ -66,6 +67,7 @@ data class ResponseDriverDetails(
         val total_trips_count: String,
         val user_type: String,
         val today_earnings: String,
+        val last_location_name: String,
         val vehicle_registration_license: String
     )
 }

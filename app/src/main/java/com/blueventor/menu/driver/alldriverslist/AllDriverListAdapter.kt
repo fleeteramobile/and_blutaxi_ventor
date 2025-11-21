@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.blueventor.R
@@ -24,12 +25,13 @@ class AllDriverListAdapter(
 
     inner class DriverViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val car_plate: TextView = itemView.findViewById(R.id.car_plate)
-        val rating: TextView = itemView.findViewById(R.id.rating)
+
         val driver_name: TextView = itemView.findViewById(R.id.driver_name)
-        val price: TextView = itemView.findViewById(R.id.price)
-        val driver_main_lay: ConstraintLayout = itemView.findViewById(R.id.driver_main_lay)
-        val call_button: ImageView = itemView.findViewById(R.id.call_button)
-        val ratting_start: ImageView = itemView.findViewById(R.id.ratting_start)
+        val taxi_manufacturer: TextView = itemView.findViewById(R.id.taxi_manufacturer)
+        val model_name: TextView = itemView.findViewById(R.id.model_name)
+        val driver_main_lay: CardView = itemView.findViewById(R.id.driver_main_lay)
+        val btnCall: ImageView = itemView.findViewById(R.id.btnCall)
+        val btnMessage: ImageView = itemView.findViewById(R.id.btnMessage)
     }
 
 
@@ -47,19 +49,25 @@ class AllDriverListAdapter(
         val driver = driverList[position]
         holder.car_plate.text = driver.taxi_no
 
-        holder.price.text = "₹${driver.account_balance}"
+        holder.model_name.text = "${driver.model_name}"
+        holder.taxi_manufacturer.text = "${driver.taxi_manufacturer}"
         holder.driver_name.text = "${driver.name.toString()}"
 
         holder.driver_main_lay.onclik {
             showDriverDetails.showDriverDetails(driver)
         }
-        setImageOnclick(holder.call_button)
+        setImageOnclick(holder.btnCall)
         {
             showDriverDetails.callDriver(driver)
         }
-        holder.call_button.hideView()
-        holder.rating.hideView()
-        holder.ratting_start.hideView()
+
+        setImageOnclick(holder.btnMessage)
+        {
+            showDriverDetails.callMessage(driver)
+        }
+       // holder.btnCall.hideView()
+      //  holder.rating.hideView()
+      //  holder.ratting_start.hideView()
     }
 
 

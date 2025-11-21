@@ -1,5 +1,7 @@
 package com.blueventor.menu.driver.alldriverslist
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -67,7 +69,8 @@ class AllDriversListFragment : Fragment(), ShowAllDriverDetails {
                 when (state) {
                     is UiState.Error -> {
                         _binding.recyclerViewAllDrivers.hideView()
-
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
                         _binding.noData.showView()
                     }
 
@@ -76,10 +79,16 @@ class AllDriversListFragment : Fragment(), ShowAllDriverDetails {
                     }
 
                     UiState.Loading -> {
+                        binding.shimmerLayout.visibility = View.VISIBLE
+                        binding.recyclerViewAllDrivers.visibility = View.GONE
+                        binding.noData.visibility = View.GONE
 
+                        binding.shimmerLayout.startShimmer()
                     }
 
                     is UiState.Success -> {
+                        binding.shimmerLayout.stopShimmer()
+                        binding.shimmerLayout.visibility = View.GONE
                         logDebugMessage("alldriversListTesting","working_inside")
                      //   val response = it.data as ResponseAllDriverList
                         val response = state.data
@@ -177,8 +186,30 @@ class AllDriversListFragment : Fragment(), ShowAllDriverDetails {
     }
 
     override fun callDriver(responseData: ResponseAllDriverList.Data) {
+        val phone = responseData.phone
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:$phone")
+        requireActivity().startActivity(intent)
+    }
+
+    override fun callMessage(responseData: ResponseAllDriverList.Data) {
+
+
+            val num = responseData.country_code+responseData.phone // user phone from list
+            val uri = Uri.parse("https://wa.me/${num.replace("+", "")}")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            intent.setPackage("com.whatsapp")
+
+            if (intent.resolveActivity(requireActivity().packageManager) != null) {
+                requireActivity().startActivity(intent)
+            } else {
+                requireActivity().startActivity(Intent(Intent.ACTION_VIEW, uri))
+
+        }
+
 
     }
+
 
 
 }

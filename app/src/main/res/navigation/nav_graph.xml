@@ -71,4 +71,16 @@
         android:name="com.blueventor.menu.cablist.CabDetailsFragment"
         android:label="fragment_cab_details"
         tools:layout="@layout/fragment_cab_details" />
+    <fragment
+        android:id="@+id/SIngleDriverTripListFragment"
+        android:name="com.blueventor.menu.driver.singledrivertriplist.SIngleDriverTripListFragment"
+        android:label="SIngleDriverTripListFragment" />
+    <fragment
+        android:id="@+id/driverRechargeLogsFragment"
+        android:name="com.blueventor.menu.driverrechargelogs.DriverRechargeLogsFragment"
+        android:label="DriverRechargeLogsFragment" />
+    <fragment
+        android:id="@+id/driverAttendanceFragment"
+        android:name="com.blueventor.menu.driverattendance.DriverAttendanceFragment"
+        android:label="DriverAttendanceFragment" />
 </navigation>

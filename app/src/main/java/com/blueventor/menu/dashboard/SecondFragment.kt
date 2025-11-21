@@ -72,7 +72,7 @@ class SecondFragment : Fragment() {
         // First day of current month
         calendar.set(Calendar.DAY_OF_MONTH, 1)
         firstDay = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(calendar.time)
-        _binding!!.startDateTxt.setText(firstDay)
+        _binding!!.startDateTxt.setText(currentDate)
         _binding!!.endDateTxt.setText(currentDate)
 
         _binding!!.startDate.setOnClickListener {
@@ -120,6 +120,21 @@ class SecondFragment : Fragment() {
             val request = RequestDashBoardCarPerformanceDetails(
                 company_id = company_id,
                 start_date = _binding!!.startDateTxt.text.toString(),
+                end_date = _binding!!.endDateTxt.text.toString(),
+                limit = "10",
+                offset = "0",
+                search = "",
+
+                )
+            dashboardViewModel.getDashBoardCarPerformanceDetails(request)
+        }
+    }
+
+    private fun loadCarpermancedetailsFirst() {
+        lifecycleScope.launch {
+            val request = RequestDashBoardCarPerformanceDetails(
+                company_id = company_id,
+                start_date = _binding!!.endDateTxt.text.toString(),
                 end_date = _binding!!.endDateTxt.text.toString(),
                 limit = "10",
                 offset = "0",
@@ -223,6 +238,17 @@ class SecondFragment : Fragment() {
         }
     }
 
+    private fun loadDashBoadApiFirst() {
+        lifecycleScope.launch {
+            val request = RequestDashBoardDetails(
+                company_id = company_id, start_date = _binding!!.endDateTxt.text.toString(),
+                end_date = _binding!!.endDateTxt.text.toString()
+
+            )
+            dashboardViewModel.getDashBoardDetails(request)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
 
@@ -231,8 +257,8 @@ class SecondFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        loadDashBoadApi()
-        loadCarpermancedetails()
+        loadDashBoadApiFirst()
+        loadCarpermancedetailsFirst()
         getDashBoadDetails()
         getCarPerformanceDetails()
     }

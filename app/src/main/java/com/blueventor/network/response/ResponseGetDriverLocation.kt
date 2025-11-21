@@ -11,6 +11,7 @@ data class ResponseGetDriverLocation(
         val driver_id: Int,
         val driver_mobile: String,
         val driver_status: String,
+        val trip_type: String,
         val loc: Loc,
         val taxi_model: String,
         val taxi_no: String

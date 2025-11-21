@@ -119,13 +119,23 @@ class CabsListFragment : Fragment(),ShowCarDetails {
                     is UiState.Error -> {
                         binding.noData.visibility = View.VISIBLE
                         binding.recyclerViewCabs.visibility = View.GONE
+                        binding.shimmerMain.stopShimmer()
+                        binding.shimmerMain.visibility = View.GONE
                     }
                     UiState.Idle -> {
 
                     }
 
-                    UiState.Loading -> {}
+                    UiState.Loading -> {
+
+                        binding.recyclerViewCabs.visibility = View.GONE
+                        binding.shimmerMain.startShimmer()
+                        binding.shimmerMain.visibility = View.VISIBLE
+                    }
                     is UiState.Success -> {
+                        binding.shimmerMain.stopShimmer()
+                        binding.shimmerMain.visibility = View.GONE
+
                         val response = cardetails.data as ResponseCarList
                         if (response != null) {
                             if (response.status ==1 ) {
